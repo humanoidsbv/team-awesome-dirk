@@ -12,6 +12,7 @@ if (visibility === "false") {
     primaryNav.setAttribute("data-visible", false);
     navToggle.setAttribute("aria-expanded", false);
     navToggle.classList.remove("open");
+    
 }
 
 });

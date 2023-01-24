@@ -10,72 +10,70 @@
 
 @font-face {
     font-family: "Proxima Nova";
-    src: url("fonts/proxima-nova-regular.ttf") format("truetype");
-    font-weight: normal;
     font-style: normal;
+    font-weight: normal;
+    src: url("fonts/proxima-nova-regular.ttf") format("truetype");
 }
 
 @font-face {
     font-family: "Proxima Nova";
-    src: url("fonts/proxima-nova-light.ttf") format("truetype");
-    font-weight: lighter;
     font-style: normal;
+    font-weight: lighter;
+    src: url("fonts/proxima-nova-light.ttf") format("truetype");
 }
 
 :root {
     --clr-blue: #4F88EF;
     --clr-white: #FFFFFF;
-    --fs-logo: 1.625rem;
     --fs-500: 1.5rem;
+    --fs-logo: 1.625rem;
 }
 
 header {
-    display: flex;
     align-items: center;
-    padding:0 1.875rem;
-    justify-content: space-between;
     background-color: var(--clr-blue);
+    display: flex;
     height: 4.375rem;
-    
+    justify-content: space-between;
+    padding:0 1.875rem;
 }
 
 .logo {
-    font-family: Bello;
     color: var(--clr-white);
+    font-family: Bello;
     font-size: var(--fs-logo);
 }
 
 #main-nav {
-    position: absolute;
+    background-color: var(--clr-blue);
     inset: 0;
     padding-top: 7rem;
-    background-color: var(--clr-blue);
-    z-index: -1;
+    position: absolute;
     transform: translateX(100%);
     transition: all .3s ease-in-out;
-
+    z-index: -1;
 }
 
 #main-nav[data-visible="true"] {
     transform: translateX(0%);
-  }
-
-.menu-items {
-    display: flex;
-    flex-direction: column;
-    gap: 2.25rem;
-    text-align: center;
-    font-family: Proxima Nova;
-    list-style-type: none;
-    padding: 0;
-    font-weight: lighter;
-    font-size: 1.5rem;
-    color: var(--clr-white);
 }
 
-.menu-item{
-text-decoration: none;
-color: var(--clr-white);
+.menu-items {
+    color: var(--clr-white);
+    display: flex;
+    flex-direction: column;
+    font-family: Proxima Nova;
+    font-size: 1.5rem;
+    font-weight: lighter;
+    gap: 2.25rem;
+    list-style-type: none;
+    padding: 0;
+    text-align: center;
+}
+
+.menu-item {
+  color: var(--clr-white);
+  text-decoration: none;
 }
 
 .menu-item:hover {
@@ -92,58 +90,61 @@ color: var(--clr-white);
 /* Burger Menu */
 
 .mob-nav-toggle {
-    display: flex;
+    align-items: center;
+    background: transparent;
+    border: 0;
     cursor: pointer;
-    width: 18px;
+    display: flex;
     height: 12px;
     justify-content: center;
-    align-items: center;
+    padding: 0;
+    width: 18px;
+    
 }
 .menu-btn__burger {
-    width: 18px;
-    height: 1.5px;
     background: var(--clr-white);
     border-radius: 5px;
-    transition: all .3s ease-in-out;
-   
-  }
-
-  .menu-btn__burger::before,
-  .menu-btn__burger::after {
-    content: "";
-    position: absolute;
-    width: 18px;
     height: 1.5px;
-    background: var(--clr-white);
-    border-radius: 5px;
     transition: all .3s ease-in-out;
+    width: 18px;
   }
 
-  .menu-btn__burger::before {
-    transform: translateY(-5px);
-  }
+.menu-btn__burger::before,
+.menu-btn__burger::after {
+  background: var(--clr-white);
+  border-radius: 5px;
+  content: "";
+  height: 1.5px;
+  position: absolute;
+  transition: all .3s ease-in-out;
+  width: 18px;
+}
 
-  .menu-btn__burger::after {
-    transform: translateY(5px);
-  }
+.menu-btn__burger::before {
+  transform: translateX(-9px) translateY(-5px);
+}
 
-  /* close menu */
+.menu-btn__burger::after {
+  transform: translateX(-9px) translateY(5px);
+}
 
-  .mob-nav-toggle.open .menu-btn__burger {
-    background: transparent;
-    transform: translateX(-50px);
-  }
+/* close menu */
 
-  .mob-nav-toggle.open .menu-btn__burger::before {
-    transform: rotate(45deg) translate(36px, -36px);
-  }
+.mob-nav-toggle.open .menu-btn__burger {
+  background: transparent;
+  transform: translateX(-50px);
+}
 
-  .mob-nav-toggle.open .menu-btn__burger::after {
-    transform: rotate(-45deg) translate(36px, 36px);
-  }
+.mob-nav-toggle.open .menu-btn__burger::before {
+  transform: rotate(45deg) translate(30px, -30px);
+}
 
-  @media (min-width: 60em) {
-    .mob-nav-toggle {
-        display: none;
-    }
+.mob-nav-toggle.open .menu-btn__burger::after {
+  transform: rotate(-45deg) translate(30px, 30px);
+}
+
+@media (min-width: 60em) {
+  .mob-nav-toggle {
+      display: none;
   }
+}
