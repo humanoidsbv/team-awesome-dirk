@@ -191,6 +191,7 @@ header {
   display: flex;
   gap: 1rem;
   margin-left: auto;
+  align-items: center;
 }
 
 .user {
