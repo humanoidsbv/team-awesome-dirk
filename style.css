@@ -50,16 +50,16 @@ header {
     background-color: var(--clr-blue);
     inset: 0;
     padding-top: 7rem;
-    position: absolute;
-    opacity:0;
-    left:100%;
+    position: fixed;
+    left: 100%;
+    opacity: 0;
     transition: all .3s ease-in-out;
     z-index: -1;
 }
 
 #main-nav[data-visible="true"] {
-    left:0%;
-    opacity:1;
+    left: 0%;
+    opacity: 1;
 }
 
 .menu-items {
@@ -160,12 +160,11 @@ header {
 
   #main-nav {
     background-color: unset;
-    /* transform: translateX(0%); */
-    opacity: 1;
     inset:unset;
-    transition: unset;
-    position: initial;
+    opacity: 1;
     padding-top: unset;
+    position: initial;
+    transition: unset;
     z-index: 1;
   }
 
