@@ -51,13 +51,15 @@ header {
     inset: 0;
     padding-top: 7rem;
     position: absolute;
-    transform: translateX(100%);
+    opacity:0;
+    left:100%;
     transition: all .3s ease-in-out;
     z-index: -1;
 }
 
 #main-nav[data-visible="true"] {
-    transform: translateX(0%);
+    left:0%;
+    opacity:1;
 }
 
 .menu-items {
@@ -158,7 +160,8 @@ header {
 
   #main-nav {
     background-color: unset;
-    transform: translateX(0%);
+    /* transform: translateX(0%); */
+    opacity: 1;
     inset:unset;
     transition: unset;
     position: initial;
