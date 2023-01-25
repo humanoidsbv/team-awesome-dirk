@@ -25,7 +25,8 @@
 :root {
     --clr-blue: #4F88EF;
     --clr-white: #FFFFFF;
-    --fs-500: 1.5rem;
+    --fs-600: 1.5rem;
+    --fs-400: 0.875rem;
     --fs-logo: 1.625rem;
 }
 
@@ -40,6 +41,7 @@ header {
 
 .logo {
     color: var(--clr-white);
+    text-decoration: none;
     font-family: Bello;
     font-size: var(--fs-logo);
 }
@@ -48,14 +50,16 @@ header {
     background-color: var(--clr-blue);
     inset: 0;
     padding-top: 7rem;
-    position: absolute;
-    transform: translateX(100%);
+    position: fixed;
+    left: 100%;
+    opacity: 0;
     transition: all .3s ease-in-out;
     z-index: -1;
 }
 
 #main-nav[data-visible="true"] {
-    transform: translateX(0%);
+    left: 0%;
+    opacity: 1;
 }
 
 .menu-items {
@@ -63,7 +67,7 @@ header {
     display: flex;
     flex-direction: column;
     font-family: Proxima Nova;
-    font-size: 1.5rem;
+    font-size: var(--fs-600);
     font-weight: lighter;
     gap: 2.25rem;
     list-style-type: none;
@@ -86,9 +90,7 @@ header {
     text-underline-offset: 8px;
 }
 
-
 /* Burger Menu */
-
 .mob-nav-toggle {
     align-items: center;
     background: transparent;
@@ -129,7 +131,6 @@ header {
 }
 
 /* close menu */
-
 .mob-nav-toggle.open .menu-btn__burger {
   background: transparent;
   transform: translateX(-50px);
@@ -143,8 +144,76 @@ header {
   transform: rotate(-45deg) translate(30px, 30px);
 }
 
+.user_dropdown {
+  display: none;
+}
+
 @media (min-width: 60em) {
   .mob-nav-toggle {
-      display: none;
+    display: none;
+  }
+
+  header {
+    gap: 3.125rem;
+    justify-content: flex-start;
+  }
+
+  #main-nav {
+    background-color: unset;
+    inset:unset;
+    opacity: 1;
+    padding-top: unset;
+    position: initial;
+    transition: unset;
+    z-index: 1;
+  }
+
+  .menu-items {
+    color: var(--clr-white);
+    display: flex;
+    flex-direction: row;
+    font-family: Proxima Nova;
+    font-size: var(--fs-400);
+    font-weight: lighter;
+    gap: 2.5rem;
+    list-style-type: none;
+    padding: 0;
+    text-align: center;
+  }
+
+  .menu-item {
+    color: var(--clr-white);
+    text-decoration: none;
+  }
+
+  .user_dropdown {
+    display: flex;
+    gap: 1rem;
+    margin-left: auto;
+  }
+
+  .user {
+    align-items: center;
+    background-color: var(--clr-white);
+    border-radius: 20px;
+    border: 2px solid var(--clr-white);
+    display: flex;
+    gap: 0.938rem;
+    height: 40px;
+    justify-content: flex-end;
+    width: 148px;
+  } 
+
+  .humanoids-logo-s {
+    display: block;
+    height: 10px;
+    width: 80px;
+  }
+
+  .profile-pic-s {
+    border-radius: 50%;
+    display: block;
+    height: 36px;
+    width: 36px;
   }
 }
