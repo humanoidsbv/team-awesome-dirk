@@ -41,9 +41,9 @@ header {
 
 .logo {
     color: var(--clr-white);
-    text-decoration: none;
     font-family: Bello;
     font-size: var(--fs-logo);
+    text-decoration: none;
 }
 
 #main-nav {
