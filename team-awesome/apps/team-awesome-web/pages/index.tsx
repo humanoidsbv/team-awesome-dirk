@@ -1,14 +1,9 @@
-import { Header } from '../src/components/header'
+import {Header} from '../src/components/header'
 
-export function Index() {
-  /*
-   * Replace the elements below with your own.
-   *
-   * Note: The corresponding styles are in the ./index.styled-components file.
-   */
+const Homepage = () => {
   return (
     <Header />
-  );
+  )
 }
 
-export default Index;
+export default Homepage;

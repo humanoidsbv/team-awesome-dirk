@@ -2,19 +2,16 @@
 import { useState } from 'react';
 import { ReactComponent as Arrow } from '../../../public/img/arrow-down.svg'
 
-
 export const Header = () => {
-
     const [isActive, setIsActive] = useState(false);
     const handleClick = () => setIsActive(!isActive);
 
     return (
 <header>
         <a href="#" className="logo">team awesome</a>
-        <button onClick={handleClick} className={`mob-nav-toggle ${isActive && 'open'}`} aria-controls="main-nav" aria-expanded="false">
+        <button onClick={handleClick} className={`mob-nav-toggle ${!isActive ? "" : 'open'}`} aria-controls="main-nav" aria-expanded="false">
             <div className="menu-btn__burger"></div>
         </button>
-        
         <nav id="main-nav" aria-label="Main" data-visible={isActive}>
             <ul className="menu-items">
                 <li>
@@ -34,7 +31,6 @@ export const Header = () => {
                 </li>
             </ul>
         </nav>
-
         <div className="user_dropdown">
             <div className="user">
                 <img className="humanoids-logo-s" src="img/1_humanoids_logo 1.png" alt="humanoids logo"/>
