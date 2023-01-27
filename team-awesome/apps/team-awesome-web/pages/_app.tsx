@@ -1,11 +1,10 @@
-import React from "react";
+import { AppProps } from "next/app";
 import { ThemeProvider } from "styled-components";
 
 import GlobalStyle from "../src/styles/global";
 import { theme } from "../src/styles/theme";
 
-
-function MyApp({ Component, pageProps }) {
+function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
       <GlobalStyle />
