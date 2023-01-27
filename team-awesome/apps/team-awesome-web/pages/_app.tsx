@@ -1,18 +1,19 @@
-import { AppProps } from 'next/app';
-import Head from 'next/head';
-import './styles.css';
+import React from "react";
+import { ThemeProvider } from "styled-components";
 
-function CustomApp({ Component, pageProps }: AppProps) {
+import GlobalStyle from "../src/styles/global";
+import { theme } from "../src/styles/theme";
+
+
+function MyApp({ Component, pageProps }) {
   return (
     <>
-      <Head>
-        <title>Welcome to team-awesome-web!</title>
-      </Head>
-      <main className="app">
+      <GlobalStyle />
+      <ThemeProvider theme={theme}>
         <Component {...pageProps} />
-      </main>
+      </ThemeProvider>
     </>
   );
 }
 
-export default CustomApp;
+export default MyApp;
