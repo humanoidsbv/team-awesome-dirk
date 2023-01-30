@@ -23,7 +23,6 @@ export const Logo = styled.a`
   font-family: ${({ theme }) => theme.fontSecondary};
   font-size: ${({ theme }) => theme.fontsizeLogo};
   text-decoration: none;
-  text-decoration: none;
 `;
 
 export const Toggle = styled.button`
