@@ -21,12 +21,12 @@ export const Test = styled.div`
 export const Logo = styled.a`
   color: ${({ theme }) => theme.backgroundPrimary};
   font-family: ${({ theme }) => theme.fontSecondary};
-  font-size: ${({ theme }) => theme.fsLogo};
+  font-size: ${({ theme }) => theme.fontsizeLogo};
   text-decoration: none;
   text-decoration: none;
 `;
 
-export const MobNavToggle = styled.button`
+export const Toggle = styled.button`
   align-items: center;
   background: transparent;
   border: 0;
@@ -122,7 +122,7 @@ export const MenuItems = styled.ul`
   display: flex;
   flex-direction: column;
   font-family: ${({ theme }) => theme.fontPrimary};
-  font-size: ${({ theme }) => theme.fs600};
+  font-size: ${({ theme }) => theme.fontsizeLarge};
   font-weight: lighter;
   gap: 2.25rem;
   list-style-type: none;
@@ -131,7 +131,7 @@ export const MenuItems = styled.ul`
 
   @media (${({ theme }) => theme.desktop}) {
     flex-direction: row;
-    font-size: ${({ theme }) => theme.fs400};
+    font-size: ${({ theme }) => theme.fontsizeRegular};
     gap: 2.5rem;
     list-style-type: none;
     padding: 0;
@@ -167,19 +167,19 @@ export const User = styled.div`
   border-radius: 20px;
   border: 2px solid ${({ theme }) => theme.backgroundPrimary};
   display: flex;
-  gap: 0.938rem;
+  gap: 1rem;
   height: 40px;
   justify-content: flex-end;
   width: 148px;
 `;
 
-export const HumanoidsLogoS = styled.img`
+export const HumanoidsLogo = styled.img`
   display: block;
   height: 10px;
   width: 80px;
 `;
 
-export const ProfilePicS = styled.img`
+export const ProfilePicture = styled.img`
   border-radius: 50%;
   display: block;
   height: 36px;

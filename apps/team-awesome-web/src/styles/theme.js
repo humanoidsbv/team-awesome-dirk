@@ -7,9 +7,9 @@ export const theme = {
   fontSecondary: "Bello",
 
   // Font-sizes
-  fs600: "1.5rem",
-  fs400: "0.875rem",
-  fsLogo: "1.625rem",
+  fontsizeLarge: "1.5rem",
+  fontsizeRegular: "0.875rem",
+  fontsizeLogo: "1.625rem",
 
   // Breakpoints
   tablet: "min-width: 720px",

@@ -10,13 +10,9 @@ export const Header = () => {
   return (
     <Styled.Header>
       <Styled.Logo href="#">team awesome</Styled.Logo>
-
-      <Styled.MobNavToggle onClick={handleClick}>
+      <Styled.Toggle onClick={handleClick}>
         <Styled.BurgerMenu isActive={isActive} />
-      </Styled.MobNavToggle>
-      {/* <button onClick={handleClick} className={`mob-nav-toggle ${!isActive ? "" : 'open'}`} aria-controls="main-nav" aria-expanded="false">
-            <div className="menu-btn__burger"></div>
-        </button> */}
+      </Styled.Toggle>
       <Styled.MainNav isActive={isActive}>
         <Styled.MenuItems>
           <Styled.MenuItem href="#">Timesheets</Styled.MenuItem>
@@ -26,11 +22,10 @@ export const Header = () => {
           <Styled.MenuItem href="#">Documents</Styled.MenuItem>
         </Styled.MenuItems>
       </Styled.MainNav>
-
       <Styled.UserDropdown>
         <Styled.User>
-          <Styled.HumanoidsLogoS src="img/1_humanoids_logo 1.png" alt="humanoids logo" />
-          <Styled.ProfilePicS src="img/amijs.png" alt="profile picture" />
+          <Styled.HumanoidsLogo src="img/1_humanoids_logo 1.png" alt="humanoids logo" />
+          <Styled.ProfilePicture src="img/amijs.png" alt="profile picture" />
         </Styled.User>
         <Arrow />
       </Styled.UserDropdown>
