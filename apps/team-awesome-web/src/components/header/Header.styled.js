@@ -8,7 +8,7 @@ export const Header = styled.header`
   justify-content: space-between;
   padding: 0 1.875rem;
 
-  @media (min-width: 60em) {
+  @media (${({ theme }) => theme.desktop}) {
     gap: 3.125rem;
     justify-content: flex-start;
   }
@@ -19,9 +19,9 @@ export const Test = styled.div`
 `;
 
 export const Logo = styled.a`
-  color: ${({ theme }) => theme.backgroudPrimary};
-  font-family: Bello;
-  font-size: var(--fs-logo);
+  color: ${({ theme }) => theme.backgroundPrimary};
+  font-family: ${({ theme }) => theme.fontSecondary};
+  font-size: ${({ theme }) => theme.fsLogo};
   text-decoration: none;
   text-decoration: none;
 `;
@@ -37,13 +37,13 @@ export const MobNavToggle = styled.button`
   padding: 0;
   width: 18px;
 
-  @media (min-width: 60em) {
+  @media (${({ theme }) => theme.desktop}) {
     display: none;
   }
 `;
 
 export const BurgerMenu = styled.div`
-  background: var(--clr-white);
+  background: ${({ theme }) => theme.backgroundPrimary};
   border-radius: 5px;
   height: 1.5px;
   transition: all 0.3s ease-in-out;
@@ -56,7 +56,7 @@ export const BurgerMenu = styled.div`
     `}
 
   &:before, &:after {
-    background: var(--clr-white);
+    background: ${({ theme }) => theme.backgroundPrimary};
     border-radius: 5px;
     content: "";
     height: 1.5px;
@@ -84,13 +84,13 @@ export const BurgerMenu = styled.div`
       `}
   }
 
-  @media (min-width: 60em) {
+  @media (${({ theme }) => theme.desktop}) {
     display: none;
   }
 `;
 
 export const MainNav = styled.nav`
-  background-color: var(--clr-blue);
+  background-color: ${({ theme }) => theme.backgroundSecondary};
   inset: 0;
   left: 100%;
   opacity: 0;
@@ -106,7 +106,7 @@ export const MainNav = styled.nav`
       opacity: 1;
     `}
 
-  @media (min-width: 60em) {
+  @media (${({ theme }) => theme.desktop}) {
     background-color: unset;
     inset: unset;
     opacity: 1;
@@ -118,21 +118,20 @@ export const MainNav = styled.nav`
 `;
 
 export const MenuItems = styled.ul`
-  color: var(--clr-white);
+  color: ${({ theme }) => theme.colorPrimary};
   display: flex;
   flex-direction: column;
-  font-family: Proxima Nova;
-  font-size: var(--fs-600);
+  font-family: ${({ theme }) => theme.fontPrimary};
+  font-size: ${({ theme }) => theme.fs600};
   font-weight: lighter;
   gap: 2.25rem;
   list-style-type: none;
   padding: 0;
   text-align: center;
 
-  @media (min-width: 60em) {
+  @media (${({ theme }) => theme.desktop}) {
     flex-direction: row;
-    font-family: Proxima Nova;
-    font-size: var(--fs-400);
+    font-size: ${({ theme }) => theme.fs400};
     gap: 2.5rem;
     list-style-type: none;
     padding: 0;
@@ -141,7 +140,7 @@ export const MenuItems = styled.ul`
 `;
 
 export const MenuItem = styled.li`
-  color: var(--clr-white);
+  color: ${({ theme }) => theme.backgroundPrimary};
   cursor: pointer;
   text-decoration: none;
 
@@ -154,7 +153,7 @@ export const MenuItem = styled.li`
 export const UserDropdown = styled.div`
   display: none;
 
-  @media (min-width: 60em) {
+  @media (${({ theme }) => theme.desktop}) {
     align-items: center;
     display: flex;
     gap: 1rem;
@@ -164,9 +163,9 @@ export const UserDropdown = styled.div`
 
 export const User = styled.div`
   align-items: center;
-  background-color: var(--clr-white);
+  background-color: ${({ theme }) => theme.backgroundPrimary};
   border-radius: 20px;
-  border: 2px solid var(--clr-white);
+  border: 2px solid ${({ theme }) => theme.backgroundPrimary};
   display: flex;
   gap: 0.938rem;
   height: 40px;

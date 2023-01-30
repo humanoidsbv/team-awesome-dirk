@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
   * {
@@ -23,14 +23,6 @@ const GlobalStyle = createGlobalStyle`
   font-style: normal;
   font-weight: lighter;
   src: url("../public/fonts/proxima-nova-light.ttf") format("truetype");
-}
-
-:root {
-  --clr-blue: #4F88EF;
-  --clr-white: #FFFFFF;
-  --fs-600: 1.5rem;
-  --fs-400: 0.875rem;
-  --fs-logo: 1.625rem;
 }
 `;
 
