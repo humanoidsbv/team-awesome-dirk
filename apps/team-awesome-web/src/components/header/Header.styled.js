@@ -19,7 +19,7 @@ export const Test = styled.div`
 `;
 
 export const Logo = styled.a`
-  color: var(--clr-white);
+  color: ${({ theme }) => theme.backgroudPrimary};
   font-family: Bello;
   font-size: var(--fs-logo);
   text-decoration: none;
