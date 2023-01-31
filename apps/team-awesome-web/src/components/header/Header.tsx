@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
 import { useState } from "react";
 import { ReactComponent as Arrow } from "../../../public/img/arrow-down.svg";
 import * as Styled from "./Header.styled";
@@ -15,7 +14,7 @@ export const Header = () => {
       </Styled.Toggle>
       <Styled.MainNav isActive={isActive}>
         <Styled.MenuItems>
-          <Styled.MenuItem href="#">Timesheets</Styled.MenuItem>
+          <Styled.MenuItem>Timesheets</Styled.MenuItem>
           <Styled.MenuItem href="#">Team members</Styled.MenuItem>
           <Styled.MenuItem href="#">Projects</Styled.MenuItem>
           <Styled.MenuItem href="#">Clients</Styled.MenuItem>

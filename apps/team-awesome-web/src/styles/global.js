@@ -24,6 +24,13 @@ const GlobalStyle = createGlobalStyle`
   font-weight: lighter;
   src: url("../public/fonts/proxima-nova-light.ttf") format("truetype");
 }
+
+@font-face {
+   font-family: "Proxima Nova";
+  font-style: normal;
+  font-weight: bold;
+  src: url("../public/fonts/proxima-nova-bold") format("truetype");
+}
 `;
 
 export default GlobalStyle;
