@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { ReactComponent as Plus } from "../../../public/img/plus-icon.svg";
 
 export const SubHeader = styled.div`
   display: grid;
@@ -54,29 +53,4 @@ export const Counter = styled.p`
   @media (${({ theme }) => theme.tablet}) {
     justify-self: left;
   }
-`;
-
-export const AddUser = styled.button`
-  align-items: center;
-  background-color: ${({ theme }) => theme.colorButton};
-  border-radius: 4px;
-  border: 0;
-  color: ${({ theme }) => theme.colorPrimary};
-  display: flex;
-  font-size: ${({ theme }) => theme.fontsizeRegular};
-  gap: 15px;
-  justify-content: center;
-  padding: 13px;
-
-  @media (${({ theme }) => theme.tablet}) {
-    width: fit-content;
-    justify-self: end;
-    padding: 13px 30px;
-  }
-`;
-
-export const PlusIcon = styled(Plus)`
-  fill: ${({ theme }) => theme.colorPrimary};
-  height: 14px;
-  width: 14px;
 `;
