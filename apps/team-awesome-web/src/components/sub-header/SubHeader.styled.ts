@@ -47,9 +47,9 @@ export const Divider = styled.div`
 `;
 
 export const Counter = styled.p`
-  text-align: right;
   color: ${({ theme }) => theme.colorAccent};
   font-size: ${({ theme }) => theme.fontsizeRegular};
+  text-align: right;
 
   @media (${({ theme }) => theme.tablet}) {
     justify-self: left;

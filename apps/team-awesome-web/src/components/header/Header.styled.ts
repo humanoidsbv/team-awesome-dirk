@@ -32,7 +32,7 @@ export const Toggle = styled.button`
   justify-content: center;
   padding: 0;
   width: 18px;
-  z-index: 50;
+  z-index: 1;
 
   @media (${({ theme }) => theme.desktop}) {
     display: none;
