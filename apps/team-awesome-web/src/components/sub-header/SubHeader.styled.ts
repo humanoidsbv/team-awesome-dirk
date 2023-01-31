@@ -22,9 +22,9 @@ export const InfoWrapper = styled.div`
 
   @media (${({ theme }) => theme.tablet}) {
     grid-template-columns: 1fr 40px 1fr;
-    width: fit-content;
     justify-items: center;
     justify-self: start;
+    width: fit-content;
   }
 `;
 

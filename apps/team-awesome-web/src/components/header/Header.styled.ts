@@ -43,7 +43,11 @@ export const Toggle = styled.button`
   }
 `;
 
-export const BurgerMenu = styled.div<{ isActive?: boolean }>`
+interface MenuProps {
+  isActive?: boolean;
+}
+
+export const BurgerMenu = styled.div<MenuProps>`
   background: ${({ theme }) => theme.backgroundPrimary};
   border-radius: 5px;
   height: 1.5px;
@@ -98,7 +102,6 @@ export const MainNav = styled.nav<{ isActive?: boolean }>`
   padding-top: 7rem;
   position: fixed;
   transition: all 0.3s ease-in-out;
-  /* z-index: 99; */
 
   ${(props) =>
     props.isActive &&
