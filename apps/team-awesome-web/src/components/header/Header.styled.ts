@@ -14,15 +14,12 @@ export const Header = styled.header`
   }
 `;
 
-export const Test = styled.div`
-  color: blue;
-`;
-
 export const Logo = styled.a`
   color: ${({ theme }) => theme.backgroundPrimary};
   font-family: ${({ theme }) => theme.fontSecondary};
   font-size: ${({ theme }) => theme.fontsizeLogo};
   text-decoration: none;
+  z-index: 100;
 `;
 
 export const Toggle = styled.button`
@@ -35,13 +32,18 @@ export const Toggle = styled.button`
   justify-content: center;
   padding: 0;
   width: 18px;
+  z-index: 1;
 
   @media (${({ theme }) => theme.desktop}) {
     display: none;
   }
 `;
 
-export const BurgerMenu = styled.div`
+interface MenuProps {
+  isActive: boolean;
+}
+
+export const BurgerMenu = styled.div<MenuProps>`
   background: ${({ theme }) => theme.backgroundPrimary};
   border-radius: 5px;
   height: 1.5px;
@@ -88,7 +90,7 @@ export const BurgerMenu = styled.div`
   }
 `;
 
-export const MainNav = styled.nav`
+export const MainNav = styled.nav<{ isActive: boolean }>`
   background-color: ${({ theme }) => theme.backgroundSecondary};
   inset: 0;
   left: 100%;
@@ -96,7 +98,6 @@ export const MainNav = styled.nav`
   padding-top: 7rem;
   position: fixed;
   transition: all 0.3s ease-in-out;
-  z-index: -1;
 
   ${(props) =>
     props.isActive &&
@@ -138,9 +139,9 @@ export const MenuItems = styled.ul`
   }
 `;
 
-export const MenuItem = styled.li`
-  color: ${({ theme }) => theme.backgroundPrimary};
+export const MenuItem = styled.a`
   cursor: pointer;
+  color: ${({ theme }) => theme.backgroundPrimary};
   text-decoration: none;
 
   &:hover {

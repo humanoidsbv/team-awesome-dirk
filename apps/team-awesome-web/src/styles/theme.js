@@ -3,11 +3,15 @@ export const theme = {
   backgroundSecondary: "#4f88ef",
   borderPrimary: "1px solid #e6eaee",
   colorPrimary: "#ffffff",
+  colorSecondary: "#4B5464",
+  colorAccent: "#7F8FA4",
+  colorButton: "#37B047",
   fontPrimary: "Proxima Nova",
   fontSecondary: "Bello",
 
   // Font-sizes
   fontsizeLarge: "1.5rem",
+  fontsizeMedium: "1.125rem",
   fontsizeRegular: "0.875rem",
   fontsizeLogo: "1.625rem",
 
