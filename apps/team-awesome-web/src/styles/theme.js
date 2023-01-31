@@ -5,7 +5,7 @@ export const theme = {
   colorPrimary: "#ffffff",
   colorSecondary: "#4B5464",
   colorAccent: "#7F8FA4",
-  colorAddUser: "#37B047",
+  colorButton: "#37B047",
   fontPrimary: "Proxima Nova",
   fontSecondary: "Bello",
 

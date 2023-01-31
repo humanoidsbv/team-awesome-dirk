@@ -5,12 +5,12 @@ export const SubHeader = () => {
     <Styled.SubHeader>
       <Styled.InfoWrapper>
         <Styled.PageTitle>Team members</Styled.PageTitle>
-        <Styled.Devider></Styled.Devider>
+        <Styled.Divider></Styled.Divider>
         <Styled.Counter>22 Humanoids</Styled.Counter>
       </Styled.InfoWrapper>
       <Styled.AddUser>
         <Styled.PlusIcon />
-        <Styled.NewHumanoid>New Humanoid</Styled.NewHumanoid>
+        New Humanoid
       </Styled.AddUser>
     </Styled.SubHeader>
   );

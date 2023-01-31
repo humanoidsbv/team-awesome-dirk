@@ -14,11 +14,21 @@ export const Header = () => {
       </Styled.Toggle>
       <Styled.MainNav isActive={isActive}>
         <Styled.MenuItems>
-          <Styled.MenuItem>Timesheets</Styled.MenuItem>
-          <Styled.MenuItem href="#">Team members</Styled.MenuItem>
-          <Styled.MenuItem href="#">Projects</Styled.MenuItem>
-          <Styled.MenuItem href="#">Clients</Styled.MenuItem>
-          <Styled.MenuItem href="#">Documents</Styled.MenuItem>
+          <li>
+            <Styled.MenuItem href="#">Timesheets</Styled.MenuItem>
+          </li>
+          <li>
+            <Styled.MenuItem href="#">Team members</Styled.MenuItem>
+          </li>
+          <li>
+            <Styled.MenuItem href="#">Projects</Styled.MenuItem>
+          </li>
+          <li>
+            <Styled.MenuItem href="#">Clients</Styled.MenuItem>
+          </li>
+          <li>
+            <Styled.MenuItem href="#">Documents</Styled.MenuItem>
+          </li>
         </Styled.MenuItems>
       </Styled.MainNav>
       <Styled.UserDropdown>

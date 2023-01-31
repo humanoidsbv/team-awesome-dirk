@@ -34,7 +34,7 @@ export const PageTitle = styled.p`
   font-weight: bold;
 `;
 
-export const Devider = styled.div`
+export const Divider = styled.div`
   display: none;
 
   @media (${({ theme }) => theme.tablet}) {
@@ -58,11 +58,12 @@ export const Counter = styled.p`
 
 export const AddUser = styled.button`
   align-items: center;
-  background-color: ${({ theme }) => theme.colorAddUser};
+  background-color: ${({ theme }) => theme.colorButton};
   border-radius: 4px;
   border: 0;
   color: ${({ theme }) => theme.colorPrimary};
   display: flex;
+  font-size: ${({ theme }) => theme.fontsizeRegular};
   gap: 15px;
   justify-content: center;
   padding: 13px;
@@ -72,10 +73,6 @@ export const AddUser = styled.button`
     justify-self: end;
     padding: 13px 30px;
   }
-`;
-
-export const NewHumanoid = styled.p`
-  font-size: ${({ theme }) => theme.fontsizeRegular};
 `;
 
 export const PlusIcon = styled(Plus)`

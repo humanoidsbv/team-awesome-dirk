@@ -14,10 +14,6 @@ export const Header = styled.header`
   }
 `;
 
-export const Test = styled.div`
-  color: blue;
-`;
-
 export const Logo = styled.a`
   color: ${({ theme }) => theme.backgroundPrimary};
   font-family: ${({ theme }) => theme.fontSecondary};
@@ -36,7 +32,7 @@ export const Toggle = styled.button`
   justify-content: center;
   padding: 0;
   width: 18px;
-  z-index: 55;
+  z-index: 50;
 
   @media (${({ theme }) => theme.desktop}) {
     display: none;
@@ -44,7 +40,7 @@ export const Toggle = styled.button`
 `;
 
 interface MenuProps {
-  isActive?: boolean;
+  isActive: boolean;
 }
 
 export const BurgerMenu = styled.div<MenuProps>`
@@ -94,7 +90,7 @@ export const BurgerMenu = styled.div<MenuProps>`
   }
 `;
 
-export const MainNav = styled.nav<{ isActive?: boolean }>`
+export const MainNav = styled.nav<{ isActive: boolean }>`
   background-color: ${({ theme }) => theme.backgroundSecondary};
   inset: 0;
   left: 100%;
@@ -143,9 +139,9 @@ export const MenuItems = styled.ul`
   }
 `;
 
-export const MenuItem = styled.li<{ href?: string }>`
-  color: ${({ theme }) => theme.backgroundPrimary};
+export const MenuItem = styled.a`
   cursor: pointer;
+  color: ${({ theme }) => theme.backgroundPrimary};
   text-decoration: none;
 
   &:hover {

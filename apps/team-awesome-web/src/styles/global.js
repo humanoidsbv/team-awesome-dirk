@@ -26,7 +26,7 @@ const GlobalStyle = createGlobalStyle`
 }
 
 @font-face {
-   font-family: "Proxima Nova";
+  font-family: "Proxima Nova";
   font-style: normal;
   font-weight: bold;
   src: url("/fonts/proxima-nova-bold") format("truetype");
