@@ -8,28 +8,28 @@ const GlobalStyle = createGlobalStyle`
 
   @font-face {
   font-family: "Bello";
-  src: url("../public/fonts/bello-script.ttf") format("truetype");
+  src: url("/fonts/bello-script.ttf") format("truetype");
 }
 
 @font-face {
   font-family: "Proxima Nova";
   font-style: normal;
   font-weight: normal;
-  src: url("../public/fonts/proxima-nova-regular.ttf") format("truetype");
+  src: url("/fonts/proxima-nova-regular.ttf") format("truetype");
 }
 
 @font-face {
   font-family: "Proxima Nova";
   font-style: normal;
   font-weight: lighter;
-  src: url("../public/fonts/proxima-nova-light.ttf") format("truetype");
+  src: url("/fonts/proxima-nova-light.ttf") format("truetype");
 }
 
 @font-face {
    font-family: "Proxima Nova";
   font-style: normal;
   font-weight: bold;
-  src: url("../public/fonts/proxima-nova-bold") format("truetype");
+  src: url("/fonts/proxima-nova-bold") format("truetype");
 }
 `;
 
