@@ -30,12 +30,6 @@ export const Button = styled.button<ButtonProps>`
     padding: 12px 30px;
     width: fit-content;
   }
-
-  svg {
-    fill: ${({ theme }) => theme.colorPrimary};
-    height: 14px;
-    width: 14px;
-  }
 `;
 
 const baseIconStyle = css`
