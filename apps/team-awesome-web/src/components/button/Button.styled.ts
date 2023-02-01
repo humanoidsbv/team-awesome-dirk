@@ -2,7 +2,7 @@ import styled, { css } from "styled-components";
 import { ReactComponent as Plus } from "../../../public/img/plus-icon.svg";
 
 type ButtonProps = {
-  variant: "primary" | "secondary";
+  variant?: "primary" | "secondary";
 };
 
 export const Button = styled.button<ButtonProps>`
@@ -12,10 +12,10 @@ export const Button = styled.button<ButtonProps>`
   border: 0;
   color: ${({ theme }) => theme.colorPrimary};
   display: flex;
-  font-size: ${({ theme }) => theme.fontsizeRegular};
+  font-size: ${({ theme }) => theme.fontizeRegular};
   gap: 15px;
   justify-content: center;
-  padding: 13px;
+  padding: 12px;
 
   ${({ variant }) =>
     variant === "secondary" &&
@@ -26,9 +26,9 @@ export const Button = styled.button<ButtonProps>`
     `}
 
   @media (${({ theme }) => theme.tablet}) {
-    width: fit-content;
     justify-self: end;
-    padding: 13px 30px;
+    padding: 12px 30px;
+    width: fit-content;
   }
 `;
 

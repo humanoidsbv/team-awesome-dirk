@@ -29,7 +29,7 @@ export const InfoWrapper = styled.div`
 
 export const PageTitle = styled.p`
   color: ${({ theme }) => theme.colorSecondary};
-  font-size: ${({ theme }) => theme.fontsizeMedium};
+  font-size: ${({ theme }) => theme.fontSizeMedium};
   font-weight: bold;
 `;
 
@@ -47,7 +47,7 @@ export const Divider = styled.div`
 
 export const Counter = styled.p`
   color: ${({ theme }) => theme.colorAccent};
-  font-size: ${({ theme }) => theme.fontsizeRegular};
+  font-size: ${({ theme }) => theme.fontSizeRegular};
   text-align: right;
 
   @media (${({ theme }) => theme.tablet}) {

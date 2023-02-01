@@ -1,4 +1,5 @@
 import { Button } from "../button";
+import { PlusIcon } from "../button/Button.styled";
 import * as Styled from "./SubHeader.styled";
 
 export const SubHeader = () => {
@@ -9,7 +10,7 @@ export const SubHeader = () => {
         <Styled.Divider></Styled.Divider>
         <Styled.Counter>22 Humanoids</Styled.Counter>
       </Styled.InfoWrapper>
-      <Button variant="primary" label="New Humanoid" icon />
+      <Button label="New Humanoid" Icon={PlusIcon} onClick={() => null} />
     </Styled.SubHeader>
   );
 };

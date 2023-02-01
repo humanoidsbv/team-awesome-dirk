@@ -11,11 +11,11 @@ export const theme = {
   fontPrimary: "Proxima Nova",
   fontSecondary: "Bello",
 
-  // Font-sizes
-  fontsizeLarge: "1.5rem",
-  fontsizeMedium: "1.125rem",
-  fontsizeRegular: "0.875rem",
-  fontsizeLogo: "1.625rem",
+  // Font-size
+  fontSizeLarge: "1.5rem",
+  fontSizeMedium: "1.125rem",
+  fontSizeRegular: "0.875rem",
+  fontSizeLogo: "1.625rem",
 
   // Breakpoints
   tablet: "min-width: 720px",
