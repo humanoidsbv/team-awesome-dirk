@@ -6,8 +6,8 @@ export const theme = {
   colorSecondary: "#4B5464",
   colorAccent: "#7F8FA4",
   colorButton: "#37B047",
-  colorGrey2: "#F5F7F9",
-  colorGrey3: "#E6EAEE",
+  colorGreyPrimary: "#F5F7F9",
+  colorGreySecondary: "#E6EAEE",
   fontPrimary: "Proxima Nova",
   fontSecondary: "Bello",
 

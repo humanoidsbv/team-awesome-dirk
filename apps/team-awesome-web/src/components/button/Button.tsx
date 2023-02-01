@@ -1,15 +1,18 @@
+import { ReactNode } from "react";
 import * as Styled from "./Button.styled";
 
 export interface Props {
-  label: string;
+  children: ReactNode;
   onClick: React.MouseEventHandler<HTMLButtonElement>;
   variant?: "primary" | "secondary";
-  Icon?: any;
+  icon?: ReactNode;
 }
 
-export const Button = ({ Icon, onClick, label, variant = "primary" }: Props) => (
-  <Styled.Button onClick={onClick} variant={variant}>
-    <Icon />
-    {label}
-  </Styled.Button>
-);
+export const Button = ({ icon, onClick, children, variant = "primary" }: Props) => {
+  return (
+    <Styled.Button onClick={onClick} variant={variant}>
+      {icon}
+      {children}
+    </Styled.Button>
+  );
+};

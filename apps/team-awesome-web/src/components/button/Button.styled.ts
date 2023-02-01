@@ -20,8 +20,8 @@ export const Button = styled.button<ButtonProps>`
   ${({ variant }) =>
     variant === "secondary" &&
     css`
-      background-color: ${({ theme }) => theme.colorGrey2};
-      border: 1px solid ${({ theme }) => theme.colorGrey3};
+      background-color: ${({ theme }) => theme.colorGreyPrimary};
+      border: 1px solid ${({ theme }) => theme.colorGreySecondary};
       color: ${({ theme }) => theme.colorSecondary};
     `}
 
@@ -30,10 +30,20 @@ export const Button = styled.button<ButtonProps>`
     padding: 12px 30px;
     width: fit-content;
   }
+
+  svg {
+    fill: ${({ theme }) => theme.colorPrimary};
+    height: 14px;
+    width: 14px;
+  }
 `;
 
-export const PlusIcon = styled(Plus)`
+const baseIconStyle = css`
   fill: ${({ theme }) => theme.colorPrimary};
   height: 14px;
   width: 14px;
+`;
+
+export const PlusIcon = styled(Plus)`
+  ${baseIconStyle}
 `;

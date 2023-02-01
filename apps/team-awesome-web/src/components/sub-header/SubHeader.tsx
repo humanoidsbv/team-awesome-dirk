@@ -10,7 +10,10 @@ export const SubHeader = () => {
         <Styled.Divider></Styled.Divider>
         <Styled.Counter>22 Humanoids</Styled.Counter>
       </Styled.InfoWrapper>
-      <Button label="New Humanoid" Icon={PlusIcon} onClick={() => null} />
+      <Button onClick={() => null}>
+        <PlusIcon />
+        New Humanoid
+      </Button>
     </Styled.SubHeader>
   );
 };
