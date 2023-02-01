@@ -2,7 +2,7 @@ import styled, { css } from "styled-components";
 import { ReactComponent as Plus } from "../../../public/img/plus-icon.svg";
 
 type ButtonProps = {
-  variant: string;
+  variant: "primary" | "secondary";
 };
 
 export const Button = styled.button<ButtonProps>`
@@ -22,6 +22,7 @@ export const Button = styled.button<ButtonProps>`
     css`
       background-color: ${({ theme }) => theme.colorGrey2};
       border: 1px solid ${({ theme }) => theme.colorGrey3};
+      color: ${({ theme }) => theme.colorSecondary};
     `}
 
   @media (${({ theme }) => theme.tablet}) {
