@@ -3,26 +3,27 @@ import styled, { css } from "styled-components";
 export const Header = styled.header`
   align-items: center;
   background-color: ${({ theme }) => theme.backgroundSecondary};
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   height: 4.375rem;
-  justify-content: space-between;
   padding: 0 1.875rem;
 
   @media (${({ theme }) => theme.desktop}) {
+    grid-template-columns: max-content auto 1fr;
     gap: 3.125rem;
-    justify-content: flex-start;
   }
 `;
 
 export const Logo = styled.a`
   color: ${({ theme }) => theme.backgroundPrimary};
   font-family: ${({ theme }) => theme.fontSecondary};
-  font-size: ${({ theme }) => theme.fontsizeLogo};
+  font-size: ${({ theme }) => theme.fontSizeLogo};
   text-decoration: none;
   z-index: 100;
 `;
 
 export const Toggle = styled.button`
+  justify-self: end;
   align-items: center;
   background: transparent;
   border: 0;
@@ -119,10 +120,9 @@ export const MainNav = styled.nav<{ isActive: boolean }>`
 
 export const MenuItems = styled.ul`
   color: ${({ theme }) => theme.colorPrimary};
-  display: flex;
-  flex-direction: column;
+  display: grid;
   font-family: ${({ theme }) => theme.fontPrimary};
-  font-size: ${({ theme }) => theme.fontsizeLarge};
+  font-size: ${({ theme }) => theme.fontSizeLarge};
   font-weight: lighter;
   gap: 2.25rem;
   list-style-type: none;
@@ -130,8 +130,8 @@ export const MenuItems = styled.ul`
   text-align: center;
 
   @media (${({ theme }) => theme.desktop}) {
-    flex-direction: row;
-    font-size: ${({ theme }) => theme.fontsizeRegular};
+    grid-auto-flow: column;
+    font-size: ${({ theme }) => theme.fontSizeRegular};
     gap: 2.5rem;
     list-style-type: none;
     padding: 0;
