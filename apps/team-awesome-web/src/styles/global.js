@@ -5,8 +5,13 @@ const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
     margin: 0;
   }
+  
+  body {
+    background-color: ${({ theme }) => theme.backgroundTertiary};
+    font-family: ${({ theme }) => theme.fontPrimary};
+  }
 
-  @font-face {
+@font-face {
   font-family: "Bello";
   src: url("/fonts/bello-script.ttf") format("truetype");
 }
@@ -29,7 +34,7 @@ const GlobalStyle = createGlobalStyle`
   font-family: "Proxima Nova";
   font-style: normal;
   font-weight: bold;
-  src: url("/fonts/proxima-nova-bold") format("truetype");
+  src: url("/fonts/proxima-nova-bold.ttf") format("truetype");
 }
 `;
 

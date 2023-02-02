@@ -1,9 +1,11 @@
 export const theme = {
   backgroundPrimary: "#ffffff",
   backgroundSecondary: "#4f88ef",
+  backgroundTertiary: "#F2F2F2",
   borderPrimary: "1px solid #e6eaee",
   colorPrimary: "#ffffff",
   colorSecondary: "#4B5464",
+  colorTertiary: "#FFA2AD",
   colorAccent: "#7F8FA4",
   colorButton: "#37B047",
   colorGreyPrimary: "#F5F7F9",
