@@ -1,12 +1,12 @@
 import styled from "styled-components";
 
 export const Header = styled.h2`
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  margin-bottom: 20px;
   color: ${({ theme }) => theme.colorAccent};
+  display: grid;
   font-size: ${({ theme }) => theme.fontSizeLarge};
   font-weight: lighter;
+  grid-template-columns: 1fr 1fr;
+  margin-bottom: 20px;
 `;
 
 export const Day = styled.p``;
