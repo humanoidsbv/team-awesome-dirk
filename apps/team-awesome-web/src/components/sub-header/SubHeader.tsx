@@ -6,13 +6,13 @@ export const SubHeader = () => {
   return (
     <Styled.SubHeader>
       <Styled.InfoWrapper>
-        <Styled.PageTitle>Team members</Styled.PageTitle>
+        <Styled.PageTitle>Timesheets</Styled.PageTitle>
         <Styled.Divider></Styled.Divider>
-        <Styled.Counter>22 Humanoids</Styled.Counter>
+        <Styled.Counter>12 Entries</Styled.Counter>
       </Styled.InfoWrapper>
       <Button onClick={() => null}>
         <PlusIcon />
-        New Humanoid
+        New time entry
       </Button>
     </Styled.SubHeader>
   );
