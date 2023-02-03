@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Header = styled.h2`
   color: ${({ theme }) => theme.colorAccent};
   display: grid;
-  font-size: ${({ theme }) => theme.fontSizeRegular};
+  font-size: ${({ theme }) => theme.fontSizeMedium};
   font-weight: lighter;
   grid-template-columns: 1fr 1fr;
   margin-bottom: 20px;

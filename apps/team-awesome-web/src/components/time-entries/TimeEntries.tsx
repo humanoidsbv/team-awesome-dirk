@@ -1,12 +1,12 @@
-import * as Styled from "./TimeEntries.styled";
 import { TimeEntry } from "../time-entry";
 import { TimeEntryHeader } from "../time-entry-header";
+import { LayoutContent } from "../layout-content";
 
 export const TimeEntries = () => {
   return (
-    <Styled.Main>
+    <LayoutContent>
       <TimeEntryHeader />
       <TimeEntry />
-    </Styled.Main>
+    </LayoutContent>
   );
 };
