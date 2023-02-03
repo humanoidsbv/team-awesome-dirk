@@ -46,7 +46,7 @@ export const DeleteButton = styled.button`
     fill: ${({ theme }) => theme.colorAccent};
   }
 
-  &:hover {
+  &:hover svg {
     fill: ${({ theme }) => theme.colorTertiary};
   }
 `;
