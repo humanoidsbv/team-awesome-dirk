@@ -4,32 +4,32 @@ import { ReactComponent as Bin } from "../../../public/img/bin.svg";
 export const Entry = styled.div`
   align-items: center;
   background-color: ${({ theme }) => theme.backgroundPrimary};
+  border-left: solid 4px ${({ theme }) => theme.backgroundSecondary};
+  border-radius: 4px;
+  border: solid 1px ${({ theme }) => theme.colorGreySecondary};
   display: grid;
+  gap: 24px;
   grid-template-columns: max-content 1fr min-content;
   padding: 20px 16px;
-  gap: 24px;
-  border: solid 1px ${({ theme }) => theme.colorGreySecondary};
-  border-radius: 4px;
-  border-left: solid 4px ${({ theme }) => theme.backgroundSecondary};
 `;
 
 export const Title = styled.p`
   color: ${({ theme }) => theme.colorSecondary};
-  font-weight: bold;
   font-size: ${({ theme }) => theme.fontSizeMedium};
+  font-weight: bold;
 `;
 
 export const TimeWrapper = styled.div`
   display: grid;
-  justify-items: end;
   gap: 10px;
+  justify-items: end;
   justify-self: end;
 `;
 
 export const Time = styled.p`
+  color: ${({ theme }) => theme.colorSecondary};
   font-size: ${({ theme }) => theme.fontSizeMedium};
   font-weight: bold;
-  color: ${({ theme }) => theme.colorSecondary};
 `;
 
 export const Amount = styled.p`
@@ -37,10 +37,10 @@ export const Amount = styled.p`
 `;
 
 export const DeleteButton = styled.button`
+  background-color: transparent;
+  border: 0;
   cursor: pointer;
   display: grid;
-  border: 0;
-  background-color: transparent;
 
   svg {
     fill: ${({ theme }) => theme.colorAccent};
