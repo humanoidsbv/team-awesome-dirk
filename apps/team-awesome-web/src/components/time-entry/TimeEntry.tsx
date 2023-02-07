@@ -6,19 +6,26 @@ export interface TimeEntryProps {
   stopTimeStamp: string;
 }
 
-const convertTime = (timeStamp: string) =>
+export const convertTime = (timeStamp: string) =>
   new Date(timeStamp).toLocaleTimeString("nl-NL", {
     hour: "2-digit",
     minute: "2-digit",
   });
 
-const hours = (timeStamp: string) => new Date(timeStamp).getHours();
+export const calculateDuration = (startTimeStamp: string, stopTimeStamp: string) => {
+  const startTimestampDate = new Date(startTimeStamp);
+  const endTimestampDate = new Date(stopTimeStamp);
+  return new Date(endTimestampDate.getTime() - startTimestampDate.getTime());
+};
 
 export const TimeEntry = ({ client, startTimeStamp, stopTimeStamp }: TimeEntryProps) => {
   const startTime = convertTime(startTimeStamp);
   const stopTime = convertTime(stopTimeStamp);
 
-  const amountHours = hours(stopTimeStamp) - hours(startTimeStamp);
+  const amountHours = calculateDuration(startTimeStamp, stopTimeStamp).toLocaleTimeString("nl-NL", {
+    hour: "2-digit",
+    minute: "2-digit",
+  });
 
   return (
     <Styled.Entry>
