@@ -1,8 +1,13 @@
+import { Dispatch, SetStateAction } from "react";
 import { Button } from "../button";
 import { PlusIcon } from "../button/Button.styled";
 import * as Styled from "./SubHeader.styled";
 
-export const SubHeader = () => {
+interface SubHeaderProps {
+  setIsModalActive: Dispatch<SetStateAction<boolean>>;
+}
+
+export const SubHeader = ({ setIsModalActive }: SubHeaderProps) => {
   return (
     <Styled.SubHeader>
       <Styled.InfoWrapper>
@@ -10,7 +15,7 @@ export const SubHeader = () => {
         <Styled.Divider></Styled.Divider>
         <Styled.Counter>12 Entries</Styled.Counter>
       </Styled.InfoWrapper>
-      <Button onClick={() => null}>
+      <Button onClick={() => setIsModalActive(true)}>
         <PlusIcon />
         New time entry
       </Button>

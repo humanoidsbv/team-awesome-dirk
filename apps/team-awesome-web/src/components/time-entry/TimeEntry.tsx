@@ -1,3 +1,4 @@
+import { calculateDuration } from "../../services/calculateDuration";
 import * as Styled from "./TimeEntry.styled";
 
 export interface TimeEntryProps {
@@ -12,21 +13,11 @@ export const convertTime = (timeStamp: string) =>
     minute: "2-digit",
   });
 
-export const calculateDuration = (startTimeStamp: string, stopTimeStamp: string) => {
-  const startTimestampDate = new Date(startTimeStamp);
-  const endTimestampDate = new Date(stopTimeStamp);
-  return new Date(endTimestampDate.getTime() - startTimestampDate.getTime());
-};
-
 export const TimeEntry = ({ client, startTimeStamp, stopTimeStamp }: TimeEntryProps) => {
   const startTime = convertTime(startTimeStamp);
   const stopTime = convertTime(stopTimeStamp);
 
-  const amountHours = calculateDuration(startTimeStamp, stopTimeStamp).toLocaleTimeString("nl-NL", {
-    hour: "2-digit",
-    minute: "2-digit",
-  });
-
+  const amountHours = calculateDuration(startTimeStamp, stopTimeStamp);
   return (
     <Styled.Entry>
       <Styled.Title>{client}</Styled.Title>
