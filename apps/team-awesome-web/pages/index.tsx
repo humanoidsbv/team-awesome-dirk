@@ -16,7 +16,6 @@ const Homepage = () => {
   const handleFormSubmit = (entry: Types.TimeEntry) => {
     setTimeEntries([...timeEntries, entry]);
     setIsModalActive(false);
-    console.log(entry);
   };
 
   return (

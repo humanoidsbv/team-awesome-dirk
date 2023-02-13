@@ -3,7 +3,7 @@ import * as Styled from "./Button.styled";
 
 export interface Props {
   children: ReactNode;
-  onClick?: React.MouseEventHandler<HTMLButtonElement>;
+  onClick: React.MouseEventHandler<HTMLButtonElement>;
   variant?: "primary" | "secondary";
   icon?: ReactNode;
   type?: "submit" | "button";
