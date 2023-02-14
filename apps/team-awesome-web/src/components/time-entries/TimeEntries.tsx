@@ -1,23 +1,45 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, { useState } from "react";
+import { useEffect } from "react";
+
 import { TimeEntry } from "../time-entry";
 import * as Types from "../../types";
-import React from "react";
+import { NotFoundError } from "../../services/errors";
 
-interface TimeEntriesProps {
-  timeEntries: Types.TimeEntry[];
-}
+export const TimeEntries = () => {
+  const [timeEntries, setTimeEntries] = useState<Types.TimeEntry[]>([]);
 
-async function getTimeEntries(): Promise<Types.TimeEntry[]> {
-  const response = await fetch("http://localhost:3004/time-entries", {
-    method: "GET",
-    headers: {
-      "Content-Type": "application/json",
-    },
-  });
+  async function getTimeEntries(): Promise<Types.TimeEntry[]> {
+    return fetch("http://localhost:3004/time-entries", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((response) => {
+        if (response.status === 404) {
+          throw new NotFoundError();
+        }
+        console.log(response.status);
+        return response;
+      })
+      .then((response) => response.json())
+      .catch((error) => error);
+  }
 
-  return response.json();
-}
+  async function fetchTimeEntries() {
+    const fetchedTimeEntries = await getTimeEntries();
+    if (fetchedTimeEntries instanceof NotFoundError) {
+      console.log("not found");
+      return;
+    }
+    setTimeEntries(fetchedTimeEntries);
+  }
 
-export const TimeEntries = ({ timeEntries }: TimeEntriesProps) => {
+  useEffect(() => {
+    fetchTimeEntries();
+  }, []);
+
   return (
     <>
       {timeEntries.map((timeEntry) => (
