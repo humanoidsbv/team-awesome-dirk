@@ -6,6 +6,17 @@ interface TimeEntriesProps {
   timeEntries: Types.TimeEntry[];
 }
 
+async function getTimeEntries(): Promise<Types.TimeEntry[]> {
+  const response = await fetch("http://localhost:3004/time-entries", {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+
+  return response.json();
+}
+
 export const TimeEntries = ({ timeEntries }: TimeEntriesProps) => {
   return (
     <>
