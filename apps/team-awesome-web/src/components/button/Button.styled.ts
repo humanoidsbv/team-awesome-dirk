@@ -1,5 +1,6 @@
 import styled, { css } from "styled-components";
 import { ReactComponent as Plus } from "../../../public/img/plus-icon.svg";
+import { theme } from "../../styles/theme";
 
 type ButtonProps = {
   variant?: "primary" | "secondary";
@@ -11,6 +12,7 @@ export const Button = styled.button<ButtonProps>`
   border-radius: 4px;
   border: 0;
   color: ${({ theme }) => theme.colorPrimary};
+  cursor: pointer;
   display: flex;
   font-size: ${({ theme }) => theme.fontizeRegular};
   gap: 15px;
@@ -25,10 +27,21 @@ export const Button = styled.button<ButtonProps>`
       color: ${({ theme }) => theme.colorSecondary};
     `}
 
+  :disabled {
+    background-color: ${({ theme }) => theme.colorGreyPrimary};
+    border: 0px solid ${({ theme }) => theme.colorGreySecondary};
+    color: ${({ theme }) => theme.colorGreyTertiary};
+    cursor: not-allowed;
+  }
+
   @media (${({ theme }) => theme.tablet}) {
     justify-self: end;
     padding: 12px 30px;
     width: fit-content;
+  }
+
+  :disabled {
+    background-color: ${theme.colorGreyPrimary};
   }
 `;
 

@@ -7,6 +7,7 @@ export const theme = {
   colorButton: "#37B047",
   colorGreyPrimary: "#F5F7F9",
   colorGreySecondary: "#E6EAEE",
+  colorGreyTertiary: "#9B9B9B",
   colorPrimary: "#ffffff",
   colorSecondary: "#4B5464",
   colorTertiary: "#FFA2AD",

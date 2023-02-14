@@ -5,7 +5,7 @@ import { LayoutContent } from "../src/components/layout-content";
 import { Modal } from "../src/components/modal";
 import { useState } from "react";
 import mockTimeEntries from "../fixtures/mock-time-entries";
-import { TimeEntryForm } from "../src/components/time-entry-form";
+import { TimeEntryForm } from "../src/components/Form/time-entry-form";
 import * as Types from "../src/types";
 
 const Homepage = () => {
@@ -16,7 +16,6 @@ const Homepage = () => {
   const handleFormSubmit = (entry: Types.TimeEntry) => {
     setTimeEntries([...timeEntries, entry]);
     setIsModalActive(false);
-    console.log(entry);
   };
 
   return (
