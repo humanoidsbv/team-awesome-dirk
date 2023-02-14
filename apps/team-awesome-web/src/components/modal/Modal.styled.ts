@@ -25,6 +25,7 @@ export const CloseButton = styled.button`
   align-items: center;
   background-color: transparent;
   border: 0;
+  cursor: pointer;
   display: grid;
   justify-content: center;
   padding: 0;

@@ -5,14 +5,18 @@ export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   label: string;
 }
 
-export const Input = ({ label, name, minLength, type, required, onChange }: InputProps) => {
+export const TimeEntryInput = ({
+  label,
+  name,
+  minLength,
+  type,
+  required,
+  onChange,
+}: InputProps) => {
   const [validity, setValidity] = useState<ValidityState | null>(null);
 
   const handleBlur = (event: ChangeEvent<HTMLInputElement>) => {
-    setValidity(() => {
-      event.target.checkValidity();
-      return event.target.validity;
-    });
+    setValidity(event.target.validity);
   };
 
   return (

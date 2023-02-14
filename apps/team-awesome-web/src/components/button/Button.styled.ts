@@ -12,6 +12,7 @@ export const Button = styled.button<ButtonProps>`
   border-radius: 4px;
   border: 0;
   color: ${({ theme }) => theme.colorPrimary};
+  cursor: pointer;
   display: flex;
   font-size: ${({ theme }) => theme.fontizeRegular};
   gap: 15px;

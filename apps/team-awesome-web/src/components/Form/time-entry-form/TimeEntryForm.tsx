@@ -1,11 +1,11 @@
-import { Dispatch, SetStateAction, useRef } from "react";
-import { useState } from "react";
-import * as Styled from "./TimeEntryForm.styled";
+import { Dispatch, SetStateAction, useRef, useState } from "react";
+
 import { Button } from "../../button";
-import * as Types from "../../../types";
 import { calculateDuration } from "../../../services/calculateDuration";
+import { TimeEntryInput } from "../time-entry-input/Input";
 import { TimeEntry } from "../../../types";
-import { Input } from "../time-entry-input/Input";
+import * as Styled from "./TimeEntryForm.styled";
+import * as Types from "../../../types";
 
 export const defaultEntry = {
   id: 0,
@@ -58,7 +58,7 @@ export const TimeEntryForm = ({ handleFormSubmit, setIsModalActive }: TimeEntryF
       <Styled.Title>New time entry</Styled.Title>
       <Styled.Form ref={formRef} onSubmit={handleSubmit}>
         <Styled.WrapperClient>
-          <Input
+          <TimeEntryInput
             minLength={5}
             label="Client"
             name="client"
@@ -68,16 +68,22 @@ export const TimeEntryForm = ({ handleFormSubmit, setIsModalActive }: TimeEntryF
           />
         </Styled.WrapperClient>
         <Styled.WrapperActivity>
-          <Input label="Activity" name="activity" onChange={handleChange} required type="text" />
+          <TimeEntryInput
+            label="Activity"
+            name="activity"
+            onChange={handleChange}
+            required
+            type="text"
+          />
         </Styled.WrapperActivity>
         <Styled.WrapperDate>
-          <Input label="Date" name="date" onChange={handleChange} required type="date" />
+          <TimeEntryInput label="Date" name="date" onChange={handleChange} required type="date" />
         </Styled.WrapperDate>
         <Styled.WrapperFrom>
-          <Input label="From" name="from" onChange={handleChange} required type="time" />
+          <TimeEntryInput label="From" name="from" onChange={handleChange} required type="time" />
         </Styled.WrapperFrom>
         <Styled.WrapperTo>
-          <Input label="To" name="to" onChange={handleChange} required type="time" />
+          <TimeEntryInput label="To" name="to" onChange={handleChange} required type="time" />
         </Styled.WrapperTo>
         <Styled.WrapperTotal>
           <Styled.Label>Total</Styled.Label>
