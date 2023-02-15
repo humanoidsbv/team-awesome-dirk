@@ -4,7 +4,7 @@ import { ReactComponent as Bin } from "../../../public/img/bin.svg";
 export const Entry = styled.div`
   align-items: center;
   background-color: ${({ theme }) => theme.backgroundPrimary};
-  border: solid 1px ${({ theme }) => theme.colorGreySecondary};
+  border-top: solid 1px ${({ theme }) => theme.colorGreySecondary};
   border-left: solid 4px ${({ theme }) => theme.backgroundSecondary};
   border-radius: 4px;
   display: grid;
