@@ -1,10 +1,10 @@
 /* eslint-disable react-hooks/exhaustive-deps */
+import { useEffect, useState } from "react";
 import { Header } from "../src/components/header";
 import { SubHeader } from "../src/components/sub-header";
 import { TimeEntries } from "../src/components/time-entries";
 import { LayoutContent } from "../src/components/layout-content";
 import { Modal } from "../src/components/modal";
-import { useEffect, useState } from "react";
 import { TimeEntryForm } from "../src/components/Form/time-entry-form";
 import * as Types from "../src/types";
 import { NotFoundError } from "../src/services/errors";
@@ -45,6 +45,8 @@ const Homepage = () => {
       .catch((error) => error);
   };
 
+  const deleteTimeEntries = async () => {};
+
   const getTimeEntries = async (): Promise<Types.TimeEntry[]> => {
     return fetch("http://localhost:3004/time-entries", {
       method: "GET",
@@ -63,7 +65,7 @@ const Homepage = () => {
       .catch((error) => error);
   };
 
-  const fetchTimeEntries = async () => {
+  const fetchTimeEntries = async (): Promise<void> => {
     const fetchedTimeEntries = await getTimeEntries();
     if (fetchedTimeEntries instanceof NotFoundError) {
       console.log("not found");

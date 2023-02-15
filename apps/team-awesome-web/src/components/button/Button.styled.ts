@@ -1,6 +1,5 @@
 import styled, { css } from "styled-components";
 import { ReactComponent as Plus } from "../../../public/img/plus-icon.svg";
-import { theme } from "../../styles/theme";
 
 type ButtonProps = {
   variant?: "primary" | "secondary";
@@ -41,7 +40,7 @@ export const Button = styled.button<ButtonProps>`
   }
 
   :disabled {
-    background-color: ${theme.colorGreyPrimary};
+    background-color: ${({ theme }) => theme.colorGreyPrimary};
   }
 `;
 
