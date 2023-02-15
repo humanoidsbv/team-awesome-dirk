@@ -1,4 +1,4 @@
-import { Dispatch, SetStateAction, useRef, useState } from "react";
+import { ChangeEvent, Dispatch, SetStateAction, useRef, useState } from "react";
 
 import { Button } from "../../button";
 import { calculateDuration } from "../../../services/calculateDuration";
@@ -33,7 +33,7 @@ export const TimeEntryForm = ({ handleFormSubmit, setIsModalActive }: TimeEntryF
 
   const formIsValid = formRef?.current?.checkValidity();
 
-  const handleChange = ({ target }: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = ({ target }: ChangeEvent<HTMLInputElement>) => {
     setNewTimeEntry({ ...newTimeEntry, [target.name]: target.value });
   };
 

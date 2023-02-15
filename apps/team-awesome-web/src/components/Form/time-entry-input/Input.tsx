@@ -29,7 +29,7 @@ export const TimeEntryInput = ({
         minLength={minLength}
         required={required}
         onBlur={handleBlur}
-      ></Styled.Input>
+      />
       {validity?.tooShort ? <span>This input is too short</span> : null}
       {validity?.valueMissing ? <span>This value is missing</span> : null}
     </>

@@ -12,7 +12,7 @@ export const SubHeader = ({ setIsModalActive }: SubHeaderProps) => {
     <Styled.SubHeader>
       <Styled.InfoWrapper>
         <Styled.PageTitle>Timesheets</Styled.PageTitle>
-        <Styled.Divider></Styled.Divider>
+        <Styled.Divider />
         <Styled.Counter>12 Entries</Styled.Counter>
       </Styled.InfoWrapper>
       <Button onClick={() => setIsModalActive(true)}>

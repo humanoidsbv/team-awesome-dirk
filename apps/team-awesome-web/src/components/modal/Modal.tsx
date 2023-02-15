@@ -1,5 +1,5 @@
-import { Dispatch, ReactNode, SetStateAction } from "react";
-import React from "react";
+/* eslint-disable react/jsx-indent */
+import React, { Dispatch, ReactNode, SetStateAction } from "react";
 import { createPortal } from "react-dom";
 import * as Styled from "./Modal.styled";
 import { CloseIcon } from "./Modal.styled";
