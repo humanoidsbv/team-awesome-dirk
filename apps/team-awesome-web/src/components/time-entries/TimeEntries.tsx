@@ -1,6 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useState } from "react";
-import { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 
 import { TimeEntry } from "../time-entry";
 import * as Types from "../../types";
@@ -8,8 +7,9 @@ import { NotFoundError } from "../../services/errors";
 
 export const TimeEntries = () => {
   const [timeEntries, setTimeEntries] = useState<Types.TimeEntry[]>([]);
+  const [errorMessage, setErrorMessage] = useState("");
 
-  async function getTimeEntries(): Promise<Types.TimeEntry[]> {
+  const getTimeEntries = async (): Promise<Types.TimeEntry[]> => {
     return fetch("http://localhost:3004/time-entries", {
       method: "GET",
       headers: {
@@ -25,16 +25,18 @@ export const TimeEntries = () => {
       })
       .then((response) => response.json())
       .catch((error) => error);
-  }
+  };
 
-  async function fetchTimeEntries() {
+  const fetchTimeEntries = async () => {
     const fetchedTimeEntries = await getTimeEntries();
     if (fetchedTimeEntries instanceof NotFoundError) {
       console.log("not found");
+
+      setErrorMessage("Time entries were not found");
       return;
     }
     setTimeEntries(fetchedTimeEntries);
-  }
+  };
 
   useEffect(() => {
     fetchTimeEntries();
@@ -42,6 +44,8 @@ export const TimeEntries = () => {
 
   return (
     <>
+      {errorMessage ? <p>{errorMessage}</p> : null}
+
       {timeEntries.map((timeEntry) => (
         <>
           <TimeEntry
