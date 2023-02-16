@@ -9,26 +9,35 @@ import { TimeEntries } from "../src/components/time-entries";
 import { TimeEntryForm } from "../src/components/Form/time-entry-form";
 import { deleteTimeEntry } from "../src/services/time-entries/deleteTimeEntries";
 import * as Types from "../src/types";
+import { getTimeEntries } from "../src/services/time-entries/getTimeEntries";
 
 interface HomepageProps {
   initialTimeEntries: Types.TimeEntry[];
+  errorMessage?: string;
 }
 
 export const getServerSideProps = async () => {
-  const response = await fetch("http://localhost:3004/time-entries");
-  const initialTimeEntries = await response.json();
+  const response = await getTimeEntries();
+  if (response instanceof Error) {
+    return {
+      props: {
+        initialTimeEntries: [],
+        errorMessage: "This is an error",
+      },
+    };
+  }
 
   return {
     props: {
-      initialTimeEntries,
+      initialTimeEntries: response,
     },
   };
 };
 
-const Homepage = ({ initialTimeEntries }: HomepageProps) => {
+const Homepage = ({ initialTimeEntries, ...props }: HomepageProps) => {
   const [isModalActive, setIsModalActive] = useState(false);
   const [timeEntries, setTimeEntries] = useState<Types.TimeEntry[]>(initialTimeEntries);
-  const [errorMessage, setErrorMessage] = useState("");
+  const [errorMessage, setErrorMessage] = useState(props.errorMessage);
 
   const handleFormSubmit = async (newTimeEntry: Types.TimeEntry) => {
     const result = await postTimeEntries(newTimeEntry);
