@@ -1,10 +1,10 @@
 import { calculateDuration } from "../../services/calculateDuration";
 import * as Styled from "./TimeEntry.styled";
+import * as Types from "../../types";
 
 export interface TimeEntryProps {
-  client: string;
-  startTimeStamp: string;
-  stopTimeStamp: string;
+  timeEntry: Types.TimeEntry;
+  handleDeleteEntry: (input: Types.TimeEntry) => void;
 }
 
 export const convertTime = (timeStamp: string) =>
@@ -13,7 +13,11 @@ export const convertTime = (timeStamp: string) =>
     minute: "2-digit",
   });
 
-export const TimeEntry = ({ client, startTimeStamp, stopTimeStamp }: TimeEntryProps) => {
+export const TimeEntry = ({ timeEntry, handleDeleteEntry }: TimeEntryProps) => {
+  const startTimeStamp = timeEntry.startTimestamp;
+  const stopTimeStamp = timeEntry.startTimestamp;
+  const { client } = timeEntry;
+
   const startTime = convertTime(startTimeStamp);
   const stopTime = convertTime(stopTimeStamp);
 
@@ -27,7 +31,7 @@ export const TimeEntry = ({ client, startTimeStamp, stopTimeStamp }: TimeEntryPr
         </Styled.Time>
         <Styled.Amount>{amountHours}</Styled.Amount>
       </Styled.TimeWrapper>
-      <Styled.DeleteButton>
+      <Styled.DeleteButton onClick={() => handleDeleteEntry(timeEntry)}>
         <Styled.BinIcon />
       </Styled.DeleteButton>
     </Styled.Entry>
