@@ -27,11 +27,11 @@ const Homepage = () => {
     setIsModalActive(false);
   };
 
-  const handleDeleteEntry = (timeEntryToDelete: Types.TimeEntry) => {
+  const handleDeleteEntry = async (timeEntryToDelete: Types.TimeEntry) => {
     if (!window.confirm("are you sure")) {
       return;
     }
-    const result = deleteTimeEntry(timeEntryToDelete);
+    const result = await deleteTimeEntry(timeEntryToDelete);
     if (result instanceof Error) {
       setErrorMessage("Time entries could not be deleted");
       return;
