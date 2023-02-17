@@ -12,8 +12,8 @@ import * as Types from "../src/types";
 import { getTimeEntries } from "../src/services/time-entries/getTimeEntries";
 
 interface HomepageProps {
-  initialTimeEntries: Types.TimeEntry[];
   errorMessage?: string;
+  timeEntries: Types.TimeEntry[];
 }
 
 export const getServerSideProps = async () => {
@@ -21,7 +21,6 @@ export const getServerSideProps = async () => {
   if (response instanceof Error) {
     return {
       props: {
-        initialTimeEntries: [],
         errorMessage: "This is an error",
       },
     };
@@ -29,14 +28,14 @@ export const getServerSideProps = async () => {
 
   return {
     props: {
-      initialTimeEntries: response,
+      timeEntries: response,
     },
   };
 };
 
-const Homepage = ({ initialTimeEntries, ...props }: HomepageProps) => {
+const Homepage = ({ ...props }: HomepageProps) => {
   const [isModalActive, setIsModalActive] = useState(false);
-  const [timeEntries, setTimeEntries] = useState<Types.TimeEntry[]>(initialTimeEntries);
+  const [timeEntries, setTimeEntries] = useState<Types.TimeEntry[]>(props.timeEntries);
   const [errorMessage, setErrorMessage] = useState(props.errorMessage);
 
   const handleFormSubmit = async (newTimeEntry: Types.TimeEntry) => {
