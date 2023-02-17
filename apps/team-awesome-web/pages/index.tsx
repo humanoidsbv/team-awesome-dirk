@@ -1,21 +1,42 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useEffect, useState } from "react";
-import { getTimeEntries } from "../src/services/time-entries/getTimeEntries";
+import { useState } from "react";
 import { Header } from "../src/components/header";
 import { LayoutContent } from "../src/components/layout-content";
 import { Modal } from "../src/components/modal";
-import { NotFoundError } from "../src/services/errors";
 import { postTimeEntries } from "../src/services/time-entries/postTimeEntries";
 import { SubHeader } from "../src/components/sub-header";
 import { TimeEntries } from "../src/components/time-entries";
 import { TimeEntryForm } from "../src/components/Form/time-entry-form";
 import { deleteTimeEntry } from "../src/services/time-entries/deleteTimeEntries";
 import * as Types from "../src/types";
+import { getTimeEntries } from "../src/services/time-entries/getTimeEntries";
 
-const Homepage = () => {
+interface HomepageProps {
+  errorMessage?: string;
+  timeEntries: Types.TimeEntry[];
+}
+
+export const getServerSideProps = async () => {
+  const response = await getTimeEntries();
+  if (response instanceof Error) {
+    return {
+      props: {
+        errorMessage: "This is an error",
+      },
+    };
+  }
+
+  return {
+    props: {
+      timeEntries: response,
+    },
+  };
+};
+
+const Homepage = ({ ...props }: HomepageProps) => {
   const [isModalActive, setIsModalActive] = useState(false);
-  const [timeEntries, setTimeEntries] = useState<Types.TimeEntry[]>([]);
-  const [errorMessage, setErrorMessage] = useState("");
+  const [timeEntries, setTimeEntries] = useState<Types.TimeEntry[]>(props.timeEntries);
+  const [errorMessage, setErrorMessage] = useState(props.errorMessage);
 
   const handleFormSubmit = async (newTimeEntry: Types.TimeEntry) => {
     const result = await postTimeEntries(newTimeEntry);
@@ -41,19 +62,6 @@ const Homepage = () => {
 
     setTimeEntries(afterDelete);
   };
-
-  const fetchTimeEntries = async (): Promise<void> => {
-    const fetchedTimeEntries = await getTimeEntries();
-    if (fetchedTimeEntries instanceof NotFoundError) {
-      setErrorMessage("Time entries were not found");
-      return;
-    }
-    setTimeEntries(fetchedTimeEntries);
-  };
-
-  useEffect(() => {
-    fetchTimeEntries();
-  }, []);
 
   return (
     <>
