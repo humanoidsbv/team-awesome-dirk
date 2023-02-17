@@ -1,3 +1,10 @@
 {
-  "time-entries": []
+  "time-entries": [
+    {
+      "id": 1,
+      "client": "asdfasdfas",
+      "startTimestamp": "2023-02-27T18:38:00.000Z",
+      "stopTimestamp": "2023-02-27T19:38:00.000Z"
+    }
+  ]
 }

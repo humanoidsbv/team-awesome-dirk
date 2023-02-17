@@ -1,5 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { useState } from "react";
+
+import { useContext, useState } from "react";
 import { Header } from "../src/components/header";
 import { LayoutContent } from "../src/components/layout-content";
 import { Modal } from "../src/components/modal";
@@ -10,6 +11,7 @@ import { TimeEntryForm } from "../src/components/Form/time-entry-form";
 import { deleteTimeEntry } from "../src/services/time-entries/deleteTimeEntries";
 import * as Types from "../src/types";
 import { getTimeEntries } from "../src/services/time-entries/getTimeEntries";
+import { StoreContext } from "../src/components/store-context";
 
 interface HomepageProps {
   errorMessage?: string;
@@ -35,7 +37,7 @@ export const getServerSideProps = async () => {
 
 const Homepage = ({ ...props }: HomepageProps) => {
   const [isModalActive, setIsModalActive] = useState(false);
-  const [timeEntries, setTimeEntries] = useState<Types.TimeEntry[]>(props.timeEntries);
+  const { timeEntries, setTimeEntries } = useContext(StoreContext);
   const [errorMessage, setErrorMessage] = useState(props.errorMessage);
 
   const handleFormSubmit = async (newTimeEntry: Types.TimeEntry) => {

@@ -7,4 +7,5 @@ export type TimeEntry = {
   date?: string;
   from?: string;
   to?: string;
+  value?: string;
 };
