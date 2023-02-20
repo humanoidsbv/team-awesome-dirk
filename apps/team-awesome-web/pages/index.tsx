@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Header } from "../src/components/header";
 import { LayoutContent } from "../src/components/layout-content";
 import { Modal } from "../src/components/modal";
@@ -20,6 +20,7 @@ interface HomepageProps {
 
 export const getServerSideProps = async () => {
   const response = await getTimeEntries();
+
   if (response instanceof Error) {
     return {
       props: {
@@ -35,15 +36,19 @@ export const getServerSideProps = async () => {
   };
 };
 
-const Homepage = ({ ...props }: HomepageProps) => {
+const Homepage = ({ errorMessage, timeEntries: initialTimeEntries }: HomepageProps) => {
   const [isModalActive, setIsModalActive] = useState(false);
   const { timeEntries, setTimeEntries } = useContext(StoreContext);
-  const [errorMessage, setErrorMessage] = useState(props.errorMessage);
+  const [errorWarning, setErrorWarning] = useState("");
+
+  useEffect(() => {
+    setTimeEntries(initialTimeEntries);
+  }, []);
 
   const handleFormSubmit = async (newTimeEntry: Types.TimeEntry) => {
     const result = await postTimeEntries(newTimeEntry);
     if (result instanceof Error) {
-      setErrorMessage("Time entry could not be uploaden");
+      setErrorWarning("Time entry could not be uploaden");
       return;
     }
     setTimeEntries([...timeEntries, result]);
@@ -56,7 +61,7 @@ const Homepage = ({ ...props }: HomepageProps) => {
     }
     const result = await deleteTimeEntry(timeEntryToDelete);
     if (result instanceof Error) {
-      setErrorMessage("Time entries could not be deleted");
+      setErrorWarning("Time entries could not be deleted");
       return;
     }
 
@@ -70,7 +75,7 @@ const Homepage = ({ ...props }: HomepageProps) => {
       <Header />
       <SubHeader setIsModalActive={setIsModalActive} />
       <LayoutContent>
-        {errorMessage ? <p>{errorMessage}</p> : null}
+        {errorWarning ? <p>{errorWarning}</p> : null}
         <TimeEntries handleDeleteEntry={handleDeleteEntry} timeEntries={timeEntries} />
       </LayoutContent>
       <Modal isActive={isModalActive} setIsModalActive={setIsModalActive}>
