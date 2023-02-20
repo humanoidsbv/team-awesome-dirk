@@ -14,7 +14,6 @@ import { getTimeEntries } from "../src/services/time-entries/getTimeEntries";
 import { StoreContext } from "../src/components/store-context";
 
 interface HomepageProps {
-  errorMessage?: string;
   timeEntries: Types.TimeEntry[];
 }
 
@@ -36,7 +35,7 @@ export const getServerSideProps = async () => {
   };
 };
 
-const Homepage = ({ errorMessage, timeEntries: initialTimeEntries }: HomepageProps) => {
+const Homepage = ({ timeEntries: initialTimeEntries }: HomepageProps) => {
   const [isModalActive, setIsModalActive] = useState(false);
   const { timeEntries, setTimeEntries } = useContext(StoreContext);
   const [errorWarning, setErrorWarning] = useState("");
