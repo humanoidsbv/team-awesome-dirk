@@ -15,6 +15,7 @@ export const Title = styled.p`
 
 export const Form = styled.form`
   display: grid;
+
   gap: 20px;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   grid-template-areas:
@@ -64,7 +65,9 @@ export const WrapperTotal = styled.div`
 export const Input = styled.input`
   border: 1px solid ${({ theme }) => theme.colorGreySecondary};
   border-radius: 4px;
+  font-family: ${({ theme }) => theme.fontPrimary};
   height: 40px;
+  padding-inline: 14px;
 `;
 
 export const Label = styled.label`

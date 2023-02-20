@@ -1,5 +1,5 @@
-import * as Types from "../../types/timeEntries";
 import { NotFoundError } from "../errors";
+import * as Types from "../../types/timeEntries";
 
 export const getTimeEntries = async (): Promise<Types.TimeEntry[]> => {
   return fetch("http://localhost:3004/time-entries", {
