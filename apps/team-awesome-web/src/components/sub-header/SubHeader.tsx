@@ -1,24 +1,22 @@
-import { Dispatch, SetStateAction } from "react";
-import { Button } from "../button";
-import { PlusIcon } from "../button/Button.styled";
+import { Dispatch, ReactNode, SetStateAction } from "react";
+
 import * as Styled from "./SubHeader.styled";
 
 interface SubHeaderProps {
   setIsModalActive: Dispatch<SetStateAction<boolean>>;
+  pageTitle: string;
+  children: ReactNode;
 }
 
-export const SubHeader = ({ setIsModalActive }: SubHeaderProps) => {
+export const SubHeader = ({ children, pageTitle, setIsModalActive }: SubHeaderProps) => {
   return (
     <Styled.SubHeader>
       <Styled.InfoWrapper>
-        <Styled.PageTitle>Timesheets</Styled.PageTitle>
+        <Styled.PageTitle>{pageTitle}</Styled.PageTitle>
         <Styled.Divider />
-        <Styled.Counter>12 Entries</Styled.Counter>
+        <Styled.Counter>12 entries</Styled.Counter>
       </Styled.InfoWrapper>
-      <Button onClick={() => setIsModalActive(true)}>
-        <PlusIcon />
-        New time entry
-      </Button>
+      {children}
     </Styled.SubHeader>
   );
 };

@@ -1,6 +1,6 @@
-import link from "next/link";
 import { useState } from "react";
 import { ReactComponent as Arrow } from "../../../public/img/arrow-down.svg";
+import { HeaderLink } from "./header-link";
 import * as Styled from "./Header.styled";
 
 export const Header = () => {
@@ -9,29 +9,17 @@ export const Header = () => {
 
   return (
     <Styled.Header>
-      <Styled.Logo href="#">team awesome</Styled.Logo>
+      <Styled.Logo href="/">team awesome</Styled.Logo>
       <Styled.Toggle onClick={handleClick}>
         <Styled.BurgerMenu isActive={isActive} />
       </Styled.Toggle>
       <Styled.MainNav isActive={isActive}>
         <Styled.MenuItems>
-          <li>
-            <link href="/" passHref>
-              <Styled.MenuItem href="#">Timesheets</Styled.MenuItem>
-            </link>
-          </li>
-          <li>
-            <Styled.MenuItem href="#">Team members</Styled.MenuItem>
-          </li>
-          <li>
-            <Styled.MenuItem href="#">Projects</Styled.MenuItem>
-          </li>
-          <li>
-            <Styled.MenuItem href="#">Clients</Styled.MenuItem>
-          </li>
-          <li>
-            <Styled.MenuItem href="#">Documents</Styled.MenuItem>
-          </li>
+          <HeaderLink color="blue" href="/" linkText="timesheets" />
+          <HeaderLink color="red" href="/team-members" linkText="Team Members" />
+          <HeaderLink color="green" href="/projects" linkText="Projects" />
+          <HeaderLink color="yellow" href="/clients" linkText="Clients" />
+          <HeaderLink color="purple" href="/documents" linkText="Documents" />
         </Styled.MenuItems>
       </Styled.MainNav>
       <Styled.UserDropdown>
