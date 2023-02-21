@@ -1,3 +1,4 @@
+import link from "next/link";
 import { useState } from "react";
 import { ReactComponent as Arrow } from "../../../public/img/arrow-down.svg";
 import * as Styled from "./Header.styled";
@@ -15,7 +16,9 @@ export const Header = () => {
       <Styled.MainNav isActive={isActive}>
         <Styled.MenuItems>
           <li>
-            <Styled.MenuItem href="#">Timesheets</Styled.MenuItem>
+            <link href="/" passHref>
+              <Styled.MenuItem href="#">Timesheets</Styled.MenuItem>
+            </link>
           </li>
           <li>
             <Styled.MenuItem href="#">Team members</Styled.MenuItem>
