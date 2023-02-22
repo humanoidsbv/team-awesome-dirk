@@ -2,7 +2,7 @@ import { ChangeEvent, Dispatch, SetStateAction, useRef, useState } from "react";
 
 import { Button } from "../../button";
 import { calculateDuration } from "../../../services/calculateDuration";
-import { TimeEntryInput } from "../time-entry-input/Input";
+import { Input } from "../input/Input";
 import { TimeEntry } from "../../../types";
 import * as Styled from "./TimeEntryForm.styled";
 import * as Types from "../../../types";
@@ -58,7 +58,7 @@ export const TimeEntryForm = ({ handleFormSubmit, setIsModalActive }: TimeEntryF
       <Styled.Title>New time entry</Styled.Title>
       <Styled.Form ref={formRef} onSubmit={handleSubmit}>
         <Styled.WrapperClient>
-          <TimeEntryInput
+          <Input
             minLength={5}
             label="Client"
             name="client"
@@ -68,22 +68,16 @@ export const TimeEntryForm = ({ handleFormSubmit, setIsModalActive }: TimeEntryF
           />
         </Styled.WrapperClient>
         <Styled.WrapperActivity>
-          <TimeEntryInput
-            label="Activity"
-            name="activity"
-            onChange={handleChange}
-            required
-            type="text"
-          />
+          <Input label="Activity" name="activity" onChange={handleChange} required type="text" />
         </Styled.WrapperActivity>
         <Styled.WrapperDate>
-          <TimeEntryInput label="Date" name="date" onChange={handleChange} required type="date" />
+          <Input label="Date" name="date" onChange={handleChange} required type="date" />
         </Styled.WrapperDate>
         <Styled.WrapperFrom>
-          <TimeEntryInput label="From" name="from" onChange={handleChange} required type="time" />
+          <Input label="From" name="from" onChange={handleChange} required type="time" />
         </Styled.WrapperFrom>
         <Styled.WrapperTo>
-          <TimeEntryInput label="To" name="to" onChange={handleChange} required type="time" />
+          <Input label="To" name="to" onChange={handleChange} required type="time" />
         </Styled.WrapperTo>
         <Styled.WrapperTotal>
           <Styled.Label>Total</Styled.Label>

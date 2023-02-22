@@ -2,9 +2,19 @@
   "time-entries": [
     {
       "id": 1,
-      "client": "adfasdfasdf",
-      "startTimestamp": "2023-02-10T13:57:00.000Z",
-      "stopTimestamp": "2023-02-10T16:57:00.000Z"
+      "client": "asdfasdfadsf",
+      "startTimestamp": "2023-02-02T17:53:00.000Z",
+      "stopTimestamp": "2023-02-02T19:53:00.000Z"
+    }
+  ],
+  "team-members": [
+    {
+      "id": 16,
+      "firstName": "Ruben",
+      "lastName": "Vermeer",
+      "emailAddress": "dirk",
+      "label": "dfijwefefsdf",
+      "currentClient": "asdfasdf"
     }
   ]
 }

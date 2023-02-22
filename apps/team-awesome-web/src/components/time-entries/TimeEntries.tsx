@@ -7,6 +7,7 @@ interface TimeEntriesProps {
 }
 
 export const TimeEntries = ({ timeEntries, handleDeleteEntry }: TimeEntriesProps) => {
+  console.log("1", timeEntries);
   return (
     <>
       {timeEntries.map((timeEntry) => (
