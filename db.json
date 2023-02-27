@@ -15,6 +15,14 @@
       "emailAddress": "dirk",
       "label": "dfijwefefsdf",
       "currentClient": "asdfasdf"
+    },
+    {
+      "id": 17,
+      "firstName": "asdfasdf",
+      "lastName": "adsfasdf",
+      "emailAddress": "asdfasdf",
+      "label": "asdfasdf",
+      "currentClient": "asdfasdfasdfadf"
     }
   ]
 }

@@ -37,7 +37,6 @@ const TeamMembersPage = ({ memberEntries: initialMemberEntries }: TeamMembersPag
   }, []);
 
   const handleFormSubmit = async (newTeamMember: Types.TeamMember) => {
-    console.log("4", newTeamMember);
     const result = await postTeamMembers(newTeamMember);
     if (result instanceof Error) {
       setErrorWarning("Time entry could not be uploaden");
