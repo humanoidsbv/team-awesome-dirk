@@ -1,6 +1,8 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 
 import { useContext, useEffect, useState } from "react";
+import { Button } from "../src/components/button";
+import { PlusIcon } from "../src/components/button/Button.styled";
 import { Header } from "../src/components/header";
 import { LayoutContent } from "../src/components/layout-content";
 import { Modal } from "../src/components/modal";
@@ -36,7 +38,7 @@ export const getServerSideProps = async () => {
 };
 
 const Homepage = ({ timeEntries: initialTimeEntries }: HomepageProps) => {
-  const [isModalActive, setIsModalActive] = useState(false);
+  const { isModalActive, setIsModalActive } = useContext(StoreContext);
   const { timeEntries, setTimeEntries } = useContext(StoreContext);
   const [errorWarning, setErrorWarning] = useState("");
 
@@ -72,9 +74,14 @@ const Homepage = ({ timeEntries: initialTimeEntries }: HomepageProps) => {
   return (
     <>
       <Header />
-      <SubHeader setIsModalActive={setIsModalActive} />
+      <SubHeader pageTitle="Timesheets" setIsModalActive={setIsModalActive}>
+        <Button onClick={() => setIsModalActive(true)}>
+          <PlusIcon />
+          New time entry
+        </Button>
+      </SubHeader>
       <LayoutContent>
-        {errorWarning ? <p>{errorWarning}</p> : null}
+        {errorWarning && <p>{errorWarning}</p>}
         <TimeEntries handleDeleteEntry={handleDeleteEntry} timeEntries={timeEntries} />
       </LayoutContent>
       <Modal isActive={isModalActive} setIsModalActive={setIsModalActive}>

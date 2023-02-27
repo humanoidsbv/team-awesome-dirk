@@ -1,21 +1,16 @@
 import { calculateDuration } from "../../services/calculateDuration";
 import * as Styled from "./TimeEntry.styled";
 import * as Types from "../../types";
+import { convertTime } from "../../services/convertTime";
 
 export interface TimeEntryProps {
   timeEntry: Types.TimeEntry;
   handleDeleteEntry: (input: Types.TimeEntry) => void;
 }
 
-export const convertTime = (timeStamp: string) =>
-  new Date(timeStamp).toLocaleTimeString("nl-NL", {
-    hour: "2-digit",
-    minute: "2-digit",
-  });
-
 export const TimeEntry = ({ timeEntry, handleDeleteEntry }: TimeEntryProps) => {
   const startTimeStamp = timeEntry.startTimestamp;
-  const stopTimeStamp = timeEntry.startTimestamp;
+  const stopTimeStamp = timeEntry.stopTimestamp;
   const { client } = timeEntry;
 
   const startTime = convertTime(startTimeStamp);
