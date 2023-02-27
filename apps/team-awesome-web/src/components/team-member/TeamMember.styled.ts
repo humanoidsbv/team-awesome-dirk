@@ -15,7 +15,7 @@ export const Container = styled.div`
   }
 `;
 
-export const ContainerTop = styled.div`
+export const NameLabel = styled.div`
   display: grid;
   grid-template-columns: max-content 1fr;
   padding: 16px 20px;
@@ -23,7 +23,7 @@ export const ContainerTop = styled.div`
   column-gap: 20px;
 `;
 
-export const ContainerBottom = styled.div`
+export const FunctionLabel = styled.div`
   display: grid;
   grid-template-columns: max-content 1fr;
   border-top: solid 1px ${({ theme }) => theme.colorGreySecondary};

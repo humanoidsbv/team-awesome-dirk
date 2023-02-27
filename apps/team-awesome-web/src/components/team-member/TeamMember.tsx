@@ -6,13 +6,11 @@ export interface MemberEntryProps {
 }
 
 export const TeamMember = ({ memberEntry }: MemberEntryProps) => {
-  const { firstName } = memberEntry;
-  const { lastName } = memberEntry;
-  const { currentClient } = memberEntry;
+  const { firstName, lastName, currentClient } = memberEntry;
 
   return (
     <Styled.Container>
-      <Styled.ContainerTop>
+      <Styled.NameLabel>
         <Styled.ProfilePicture src="img/amijs.png" alt="profile picture" />
         <Styled.NameWrapper>
           <Styled.FontStyleOne>
@@ -20,8 +18,8 @@ export const TeamMember = ({ memberEntry }: MemberEntryProps) => {
           </Styled.FontStyleOne>
           <Styled.FontStyleTwo>Front-end Developer</Styled.FontStyleTwo>
         </Styled.NameWrapper>
-      </Styled.ContainerTop>
-      <Styled.ContainerBottom>
+      </Styled.NameLabel>
+      <Styled.FunctionLabel>
         <Styled.ClientWrapper>
           <Styled.FontStyleOne>{currentClient}</Styled.FontStyleOne>
           <Styled.FontStyleTwo>Client</Styled.FontStyleTwo>
@@ -30,7 +28,7 @@ export const TeamMember = ({ memberEntry }: MemberEntryProps) => {
           <Styled.FontStyleOne>February 2022</Styled.FontStyleOne>
           <Styled.FontStyleTwo>Starting date</Styled.FontStyleTwo>
         </Styled.DateWrapper>
-      </Styled.ContainerBottom>
+      </Styled.FunctionLabel>
     </Styled.Container>
   );
 };

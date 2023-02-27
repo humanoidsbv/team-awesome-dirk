@@ -1,17 +1,18 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useContext, useEffect, useState } from "react";
-import { Header } from "../src/components/header";
-import { SubHeader } from "../src/components/sub-header";
-import { StoreContext } from "../src/components/store-context";
+
 import { Button } from "../src/components/button";
-import { PlusIcon } from "../src/components/button/Button.styled";
-import { LayoutContent } from "../src/components/layout-content";
-import { TeamMembers } from "../src/components/team-members";
-import { Modal } from "../src/components/modal";
-import { TeamMemberForm } from "../src/components/Form/team-member-form";
-import * as Types from "../src/types";
 import { getTeamMembers } from "../src/services/team-members/getTeamMembers";
+import { Header } from "../src/components/header";
+import { LayoutContent } from "../src/components/layout-content";
+import { Modal } from "../src/components/modal";
+import { PlusIcon } from "../src/components/button/Button.styled";
 import { postTeamMembers } from "../src/services/team-members/postTeamMembers";
+import { StoreContext } from "../src/components/store-context";
+import { SubHeader } from "../src/components/sub-header";
+import { TeamMemberForm } from "../src/components/Form/team-member-form";
+import { TeamMembers } from "../src/components/team-members";
+import * as Types from "../src/types";
 
 interface TeamMembersPageProps {
   memberEntries: Types.TeamMember[];
@@ -59,7 +60,7 @@ const TeamMembersPage = ({ memberEntries: initialMemberEntries }: TeamMembersPag
       <LayoutContent>
         <TeamMembers memberEntries={memberEntries} />
       </LayoutContent>
-      {errorWarning ? <p>{errorWarning}</p> : null}
+      {errorWarning && <p>{errorWarning}</p>}
       <Modal isActive={isModalActive} setIsModalActive={setIsModalActive}>
         <TeamMemberForm handleFormSubmit={handleFormSubmit} />
       </Modal>

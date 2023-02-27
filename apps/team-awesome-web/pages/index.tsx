@@ -81,7 +81,7 @@ const Homepage = ({ timeEntries: initialTimeEntries }: HomepageProps) => {
         </Button>
       </SubHeader>
       <LayoutContent>
-        {errorWarning ? <p>{errorWarning}</p> : null}
+        {errorWarning && <p>{errorWarning}</p>}
         <TimeEntries handleDeleteEntry={handleDeleteEntry} timeEntries={timeEntries} />
       </LayoutContent>
       <Modal isActive={isModalActive} setIsModalActive={setIsModalActive}>

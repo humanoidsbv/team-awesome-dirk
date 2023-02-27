@@ -7,12 +7,12 @@ interface StoreProviderProps {
 }
 
 interface StoreContextProps {
-  timeEntries: Types.TimeEntry[];
-  setTimeEntries: Dispatch<SetStateAction<Types.TimeEntry[]>>;
-  memberEntries: Types.TeamMember[];
-  setMemberEntries: Dispatch<SetStateAction<Types.TeamMember[]>>;
   isModalActive: boolean;
+  memberEntries: Types.TeamMember[];
   setIsModalActive: Dispatch<SetStateAction<boolean>>;
+  setMemberEntries: Dispatch<SetStateAction<Types.TeamMember[]>>;
+  setTimeEntries: Dispatch<SetStateAction<Types.TimeEntry[]>>;
+  timeEntries: Types.TimeEntry[];
 }
 
 export const StoreContext = createContext<StoreContextProps>({} as StoreContextProps);
