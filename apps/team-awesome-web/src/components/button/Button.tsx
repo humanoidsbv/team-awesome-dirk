@@ -6,14 +6,14 @@ export interface Props {
   disabled?: boolean;
   onClick?: MouseEventHandler<HTMLButtonElement>;
   variant?: "primary" | "secondary";
-  icon?: ReactNode;
+  icon?: boolean;
   type?: "submit" | "button";
 }
 
 export const Button = ({ disabled, type, icon, onClick, children, variant = "primary" }: Props) => {
   return (
     <Styled.Button disabled={disabled} onClick={(e) => onClick?.(e)} variant={variant}>
-      {icon}
+      {icon && <Styled.PlusIcon>{icon}</Styled.PlusIcon>}
       {children}
     </Styled.Button>
   );

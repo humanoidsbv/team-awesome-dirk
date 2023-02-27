@@ -6,7 +6,6 @@ import { getTeamMembers } from "../src/services/team-members/getTeamMembers";
 import { Header } from "../src/components/header";
 import { LayoutContent } from "../src/components/layout-content";
 import { Modal } from "../src/components/modal";
-import { PlusIcon } from "../src/components/button/Button.styled";
 import { postTeamMembers } from "../src/services/team-members/postTeamMembers";
 import { StoreContext } from "../src/components/store-context";
 import { SubHeader } from "../src/components/sub-header";
@@ -52,8 +51,7 @@ const TeamMembersPage = ({ memberEntries: initialMemberEntries }: TeamMembersPag
     <>
       <Header />
       <SubHeader pageTitle="Team members" setIsModalActive={setIsModalActive}>
-        <Button onClick={() => setIsModalActive(true)}>
-          <PlusIcon />
+        <Button icon onClick={() => setIsModalActive(true)}>
           New Humanoid
         </Button>
       </SubHeader>
