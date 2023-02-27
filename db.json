@@ -2,7 +2,25 @@
   "time-entries": [
     {
       "id": 1,
-      "client": "asdfasdfadsf",
+      "client": "Team 1",
+      "startTimestamp": "2023-02-02T17:53:00.000Z",
+      "stopTimestamp": "2023-02-02T19:53:00.000Z"
+    },
+    {
+      "id": 2,
+      "client": "Team 2",
+      "startTimestamp": "2023-02-02T17:53:00.000Z",
+      "stopTimestamp": "2023-02-02T19:53:00.000Z"
+    },
+    {
+      "id": 3,
+      "client": "Team 3",
+      "startTimestamp": "2023-02-02T17:53:00.000Z",
+      "stopTimestamp": "2023-02-02T19:53:00.000Z"
+    },
+    {
+      "id": 4,
+      "client": "Team 4",
       "startTimestamp": "2023-02-02T17:53:00.000Z",
       "stopTimestamp": "2023-02-02T19:53:00.000Z"
     }
