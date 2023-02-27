@@ -8,7 +8,6 @@ interface TimeEntriesProps {
 }
 
 export const TimeEntries = ({ handleDeleteEntry }: TimeEntriesProps) => {
-  const [sortOrder, setSortOrder] = useState("ascending");
   const { timeEntries, setTimeEntries } = useContext(StoreContext);
 
   const sortOptions = ["ascending", "descending"];
