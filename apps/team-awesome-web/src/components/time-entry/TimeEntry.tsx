@@ -10,7 +10,7 @@ export interface TimeEntryProps {
 
 export const TimeEntry = ({ timeEntry, handleDeleteEntry }: TimeEntryProps) => {
   const startTimeStamp = timeEntry.startTimestamp;
-  const stopTimeStamp = timeEntry.startTimestamp;
+  const stopTimeStamp = timeEntry.stopTimestamp;
   const { client } = timeEntry;
 
   const startTime = convertTime(startTimeStamp);
