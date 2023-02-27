@@ -30,7 +30,6 @@ export const TeamMemberForm = ({ handleFormSubmit }: TeamMemberFormProps) => {
 
   const handleSubmit = (e: SyntheticEvent) => {
     e.preventDefault();
-    console.log("2", newMemberEntry);
 
     handleFormSubmit({
       id: newMemberEntry.id,
