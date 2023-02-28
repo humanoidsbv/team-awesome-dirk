@@ -34,19 +34,16 @@ export const TimeEntries = ({ handleDeleteEntry }: TimeEntriesProps) => {
 
   return (
     <>
-      <label htmlFor="sort-time-entries">
-        Sort time entries
-        <select
-          value={sortOption}
-          onChange={handleChange}
-          name="sort-time-entries"
-          id="sort-time-entries"
-        >
-          {/* <option value="">--Please choose an option--</option> */}
-          <option value="client">Client</option>
-          <option value="startTimestamp">Start time</option>
-        </select>
-      </label>
+      <select
+        value={sortOption}
+        onChange={handleChange}
+        name="sort-time-entries"
+        id="sort-time-entries"
+      >
+        <option value="client">Client</option>
+        <option value="startTimestamp">Start time</option>
+      </select>
+
       {sortedTimeEntries?.map((timeEntry) => (
         <TimeEntry key={timeEntry.id} handleDeleteEntry={handleDeleteEntry} timeEntry={timeEntry} />
       ))}
