@@ -1,4 +1,4 @@
-import { useState, useContext, ChangeEvent } from "react";
+import { useContext, ChangeEvent, useEffect, useState, ChangeEventHandler } from "react";
 import { StoreContext } from "../store-context";
 import { TimeEntry } from "../time-entry";
 import * as Types from "../../types";
@@ -8,35 +8,40 @@ interface TimeEntriesProps {
 }
 
 export const TimeEntries = ({ handleDeleteEntry }: TimeEntriesProps) => {
-  const { timeEntries, setTimeEntries } = useContext(StoreContext);
+  const { timeEntries } = useContext(StoreContext);
 
-  const sortOptions = ["ascending", "descending"];
+  const [sortOption, setSortOption] = useState<string>("client");
+  const [sortedTimeEntries, setSortedTimeEntries] = useState<Types.TimeEntry[]>([]);
 
-  const handleSort = ({ target }: ChangeEvent<HTMLSelectElement>) => {
-    const selectSortOrder = target.value;
-
-    const sorted = [...timeEntries].sort((a, b) => {
-      if (a.id < b.id) {
-        return selectSortOrder === "ascending" ? -1 : 1;
-      }
-      if (a.id > b.id) {
-        return selectSortOrder === "ascending" ? 1 : -1;
-      }
-      return 0;
-    });
-    setSortOrder(sortOrder);
-    setTimeEntries(sorted);
+  const handleSort = (entries: Types.TimeEntry[], option: string) => {
+    const sortEntries = entries.sort((a: any, b: any) => a[option].localeCompare(b[option]));
+    setSortedTimeEntries(sortEntries);
   };
+
+  const handleChange = ({ target }: ChangeEvent<HTMLSelectElement>) => {
+    const selectedSort = target.value;
+    setSortOption(selectedSort);
+    handleSort(timeEntries, selectedSort);
+  };
+
+  useEffect(() => {
+    handleSort(timeEntries, sortOption);
+  }, [timeEntries]);
 
   return (
     <>
       <label htmlFor="sort-time-entries">Sort time entries</label>
-      <select onChange={handleSort} name="dropdown" id="sort-time-entries">
+      <select
+        value={sortOption}
+        onChange={handleChange}
+        name="sort-time-entries"
+        id="sort-time-entries"
+      >
         <option value="">--Please choose an option--</option>
-        <option value={sortOptions[0]}>Ascending</option>
-        <option value={sortOptions[1]}>Descending</option>
+        <option value="client">Client</option>
+        <option value="startTimestamp">Start time</option>
       </select>
-      {timeEntries.map((timeEntry) => (
+      {sortedTimeEntries?.map((timeEntry) => (
         <TimeEntry key={timeEntry.id} handleDeleteEntry={handleDeleteEntry} timeEntry={timeEntry} />
       ))}
     </>
