@@ -82,7 +82,7 @@ const Homepage = ({ timeEntries: initialTimeEntries }: HomepageProps) => {
       </SubHeader>
       <LayoutContent>
         {errorWarning && <p>{errorWarning}</p>}
-        <TimeEntries handleDeleteEntry={handleDeleteEntry} timeEntries={timeEntries} />
+        <TimeEntries handleDeleteEntry={handleDeleteEntry} />
       </LayoutContent>
       <Modal isActive={isModalActive} setIsModalActive={setIsModalActive}>
         <TimeEntryForm handleFormSubmit={handleFormSubmit} setIsModalActive={setIsModalActive} />

@@ -1,4 +1,5 @@
-import { Dispatch, ReactNode, SetStateAction } from "react";
+import { Dispatch, ReactNode, SetStateAction, useContext } from "react";
+import { StoreContext } from "../store-context";
 
 import * as Styled from "./SubHeader.styled";
 
@@ -9,12 +10,14 @@ interface SubHeaderProps {
 }
 
 export const SubHeader = ({ children, pageTitle, setIsModalActive }: SubHeaderProps) => {
+  const { timeEntries } = useContext(StoreContext);
+
   return (
     <Styled.SubHeader>
       <Styled.InfoWrapper>
         <Styled.PageTitle>{pageTitle}</Styled.PageTitle>
         <Styled.Divider />
-        <Styled.Counter>12 entries</Styled.Counter>
+        <Styled.Counter>{`${timeEntries.length} entries`}</Styled.Counter>
       </Styled.InfoWrapper>
       {children}
     </Styled.SubHeader>

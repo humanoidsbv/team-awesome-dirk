@@ -1,12 +1,6 @@
 {
   "time-entries": [
     {
-      "id": 1,
-      "client": "Team 1",
-      "startTimestamp": "2023-02-02T17:53:00.000Z",
-      "stopTimestamp": "2023-02-02T19:53:00.000Z"
-    },
-    {
       "id": 2,
       "client": "Team 2",
       "startTimestamp": "2023-02-02T17:53:00.000Z",
@@ -17,12 +11,6 @@
       "client": "Team 4",
       "startTimestamp": "2023-02-02T17:53:00.000Z",
       "stopTimestamp": "2023-02-02T19:53:00.000Z"
-    },
-    {
-      "id": 5,
-      "client": "Team 5",
-      "startTimestamp": "2023-02-01T17:46:00.000Z",
-      "stopTimestamp": "2023-02-01T19:46:00.000Z"
     },
     {
       "id": 6,
@@ -47,6 +35,24 @@
       "client": "Team 3",
       "startTimestamp": "2023-02-16T15:02:00.000Z",
       "stopTimestamp": "2023-02-16T15:02:00.000Z"
+    },
+    {
+      "id": 10,
+      "client": "Team 7",
+      "startTimestamp": "2023-02-22T17:40:00.000Z",
+      "stopTimestamp": "2023-02-22T19:40:00.000Z"
+    },
+    {
+      "id": 11,
+      "client": "Team 7",
+      "startTimestamp": "2023-02-28T16:20:00.000Z",
+      "stopTimestamp": "2023-02-28T16:20:00.000Z"
+    },
+    {
+      "id": 12,
+      "client": "Team 7",
+      "startTimestamp": "2023-02-28T22:27:00.000Z",
+      "stopTimestamp": "2023-02-28T22:27:00.000Z"
     }
   ],
   "team-members": [

@@ -8,35 +8,49 @@ interface TimeEntriesProps {
 }
 
 type SortOption = "client" | "startTimestamp";
+type FilterOption = string;
 
 export const TimeEntries = ({ handleDeleteEntry }: TimeEntriesProps) => {
   const { timeEntries } = useContext(StoreContext);
-
   const [sortOption, setSortOption] = useState<SortOption>("client");
-  const [sortedTimeEntries, setSortedTimeEntries] = useState<Types.TimeEntry[]>([]);
+  const [filterOption, setFilterOption] = useState<FilterOption>("Show all clients");
 
-  const handleSort = (entries: Types.TimeEntry[], option: SortOption) => {
-    const sortEntries = entries.sort((a: Types.TimeEntry, b: Types.TimeEntry) =>
-      a[option].localeCompare(b[option]),
+  const [sortedTimeEntries, setSortedTimeEntries] = useState<Types.TimeEntry[]>([]);
+  const filterOptions = new Set([...timeEntries.map((client) => client.client)].sort());
+
+  const handleSortandFilter = (sort: SortOption, filter: FilterOption) => {
+    const filteredEntries =
+      filter === "Show all clients"
+        ? [...timeEntries]
+        : timeEntries.filter((entry) => entry.client === filter);
+
+    const sortedEntries = filteredEntries.sort((a: Types.TimeEntry, b: Types.TimeEntry) =>
+      a[sort].localeCompare(b[sort]),
     );
-    setSortedTimeEntries(sortEntries);
+    setSortedTimeEntries(sortedEntries);
   };
 
-  const handleChange = ({ target }: ChangeEvent<HTMLSelectElement>) => {
+  const handleChangeSort = ({ target }: ChangeEvent<HTMLSelectElement>) => {
     const selectedSort: SortOption = target.value as SortOption;
     setSortOption(selectedSort);
-    handleSort(timeEntries, selectedSort);
+    handleSortandFilter(selectedSort, filterOption);
+  };
+
+  const handleChangeFilter = ({ target }: ChangeEvent<HTMLSelectElement>) => {
+    const selectedFilter = target.value;
+    setFilterOption(selectedFilter);
+    handleSortandFilter(sortOption, selectedFilter);
   };
 
   useEffect(() => {
-    handleSort(timeEntries, sortOption);
+    handleSortandFilter(sortOption, filterOption);
   }, [timeEntries]);
 
   return (
     <>
       <select
         value={sortOption}
-        onChange={handleChange}
+        onChange={handleChangeSort}
         name="sort-time-entries"
         id="sort-time-entries"
       >
@@ -44,7 +58,14 @@ export const TimeEntries = ({ handleDeleteEntry }: TimeEntriesProps) => {
         <option value="startTimestamp">Start time</option>
       </select>
 
-      {sortedTimeEntries?.map((timeEntry) => (
+      <select id="clients" onChange={handleChangeFilter}>
+        <option value="Show all clients">Show all clients</option>
+        {[...filterOptions].map((timeEntry) => (
+          <option value={timeEntry}>{timeEntry}</option>
+        ))}
+      </select>
+
+      {sortedTimeEntries.map((timeEntry) => (
         <TimeEntry key={timeEntry.id} handleDeleteEntry={handleDeleteEntry} timeEntry={timeEntry} />
       ))}
     </>
