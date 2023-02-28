@@ -1,15 +1,50 @@
+import { useContext, ChangeEvent, useEffect, useState } from "react";
+import { StoreContext } from "../store-context";
 import { TimeEntry } from "../time-entry";
 import * as Types from "../../types";
 
 interface TimeEntriesProps {
-  timeEntries: Types.TimeEntry[];
   handleDeleteEntry: (input: Types.TimeEntry) => void;
 }
 
-export const TimeEntries = ({ timeEntries, handleDeleteEntry }: TimeEntriesProps) => {
+type SortOption = "client" | "startTimestamp";
+
+export const TimeEntries = ({ handleDeleteEntry }: TimeEntriesProps) => {
+  const { timeEntries } = useContext(StoreContext);
+
+  const [sortOption, setSortOption] = useState<SortOption>("client");
+  const [sortedTimeEntries, setSortedTimeEntries] = useState<Types.TimeEntry[]>([]);
+
+  const handleSort = (entries: Types.TimeEntry[], option: SortOption) => {
+    const sortEntries = entries.sort((a: Types.TimeEntry, b: Types.TimeEntry) =>
+      a[option].localeCompare(b[option]),
+    );
+    setSortedTimeEntries(sortEntries);
+  };
+
+  const handleChange = ({ target }: ChangeEvent<HTMLSelectElement>) => {
+    const selectedSort: SortOption = target.value as SortOption;
+    setSortOption(selectedSort);
+    handleSort(timeEntries, selectedSort);
+  };
+
+  useEffect(() => {
+    handleSort(timeEntries, sortOption);
+  }, [timeEntries]);
+
   return (
     <>
-      {timeEntries.map((timeEntry) => (
+      <select
+        value={sortOption}
+        onChange={handleChange}
+        name="sort-time-entries"
+        id="sort-time-entries"
+      >
+        <option value="client">Client</option>
+        <option value="startTimestamp">Start time</option>
+      </select>
+
+      {sortedTimeEntries?.map((timeEntry) => (
         <TimeEntry key={timeEntry.id} handleDeleteEntry={handleDeleteEntry} timeEntry={timeEntry} />
       ))}
     </>
