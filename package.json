@@ -5,7 +5,7 @@
   "scripts": {
     "json-server": "json-server --watch db.json --port 3004",
     "dev": "nx serve team-awesome-web & npm run json-server",
-    "lint": "nx lint"
+    "lint": "eslint '*/**/*.{js,ts,tsx}'"
   },
   "private": true,
   "dependencies": {
