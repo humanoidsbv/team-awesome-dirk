@@ -5,7 +5,7 @@ export const deleteTimeEntry = async (
   timeEntryToDelete: Types.TimeEntry,
 ): Promise<Types.TimeEntry> => {
   return fetch(
-    `https://my-json-server.typicode.com/humanoidsbv/team-awesome-dirk/time-entries${timeEntryToDelete.id}`,
+    `https://my-json-server.typicode.com/humanoidsbv/team-awesome-dirk/time-entries/${timeEntryToDelete.id}`,
     {
       method: "DELETE",
       headers: {
