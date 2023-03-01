@@ -60,8 +60,10 @@ export const TimeEntries = ({ handleDeleteEntry }: TimeEntriesProps) => {
 
       <select id="clients" onChange={handleChangeFilter}>
         <option value="Show all clients">Show all clients</option>
-        {[...filterOptions].map((timeEntry) => (
-          <option value={timeEntry}>{timeEntry}</option>
+        {[...filterOptions].map((filterSelection) => (
+          <option key={filterSelection} value={filterSelection}>
+            {filterSelection}
+          </option>
         ))}
       </select>
 
