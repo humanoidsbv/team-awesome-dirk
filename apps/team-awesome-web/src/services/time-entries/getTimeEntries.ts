@@ -2,7 +2,7 @@ import { NotFoundError } from "../errors";
 import * as Types from "../../types/timeEntries";
 
 export const getTimeEntries = async (): Promise<Types.TimeEntry[]> => {
-  return fetch("http://localhost:3004/time-entries", {
+  return fetch("https://my-json-server.typicode.com/humanoidsbv/team-awesome-dirk/time-entries", {
     method: "GET",
     headers: {
       "Content-Type": "application/json",

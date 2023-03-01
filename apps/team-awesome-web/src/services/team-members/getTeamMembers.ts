@@ -1,7 +1,7 @@
 import * as Types from "../../types/teamMember";
 
 export const getTeamMembers = async (): Promise<Types.TeamMember[]> => {
-  return fetch("http://localhost:3004/team-members", {
+  return fetch("https://my-json-server.typicode.com/humanoidsbv/team-awesome-dirk/team-members", {
     method: "GET",
     headers: {
       "Content-type": "application/json",
