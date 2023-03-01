@@ -1,1 +1,1 @@
-export { TimeEntryInput } from "./Input";
+export { Input } from "./Input";

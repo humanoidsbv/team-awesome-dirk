@@ -1,13 +1,16 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { useContext, ChangeEvent, useEffect, useState } from "react";
 import { StoreContext } from "../store-context";
 import { TimeEntry } from "../time-entry";
+import { Select } from "../Select";
 import * as Types from "../../types";
+import * as Styled from "./TimeEntries.Styled";
 
 interface TimeEntriesProps {
   handleDeleteEntry: (input: Types.TimeEntry) => void;
 }
 
-type SortOption = "client" | "startTimestamp";
+export type SortOption = "client" | "startTimestamp";
 type FilterOption = string;
 
 export const TimeEntries = ({ handleDeleteEntry }: TimeEntriesProps) => {
@@ -48,25 +51,26 @@ export const TimeEntries = ({ handleDeleteEntry }: TimeEntriesProps) => {
 
   return (
     <>
-      <select
-        value={sortOption}
-        onChange={handleChangeSort}
-        name="sort-time-entries"
-        id="sort-time-entries"
-      >
-        <option value="client">Client</option>
-        <option value="startTimestamp">Start time</option>
-      </select>
+      <Styled.Container>
+        <Select
+          value={sortOption}
+          onChange={handleChangeSort}
+          name="sort-time-entries"
+          id="sort-time-entries"
+        >
+          <option value="client">Client</option>
+          <option value="startTimestamp">Start time</option>
+        </Select>
 
-      <select id="clients" onChange={handleChangeFilter}>
-        <option value="Show all clients">Show all clients</option>
-        {[...filterOptions].map((filterSelection) => (
-          <option key={filterSelection} value={filterSelection}>
-            {filterSelection}
-          </option>
-        ))}
-      </select>
-
+        <Select name="filter-time-entries" id="clients" onChange={handleChangeFilter}>
+          <option value="Show all clients">Show all clients</option>
+          {[...filterOptions].map((filterSelection) => (
+            <option key={filterSelection} value={filterSelection}>
+              {filterSelection}
+            </option>
+          ))}
+        </Select>
+      </Styled.Container>
       {sortedTimeEntries.map((timeEntry) => (
         <TimeEntry key={timeEntry.id} handleDeleteEntry={handleDeleteEntry} timeEntry={timeEntry} />
       ))}
