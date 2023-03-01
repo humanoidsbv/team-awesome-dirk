@@ -2,15 +2,14 @@
 import { useContext, ChangeEvent, useEffect, useState } from "react";
 import { StoreContext } from "../store-context";
 import { TimeEntry } from "../time-entry";
-import { Select } from "../Select";
+import { Select } from "../select";
+import { SortOption } from "../../types/sortOption";
 import * as Types from "../../types";
 import * as Styled from "./TimeEntries.Styled";
 
 interface TimeEntriesProps {
   handleDeleteEntry: (input: Types.TimeEntry) => void;
 }
-
-export type SortOption = "client" | "startTimestamp";
 
 export const TimeEntries = ({ handleDeleteEntry }: TimeEntriesProps) => {
   const { timeEntries } = useContext(StoreContext);
