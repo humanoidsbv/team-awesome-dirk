@@ -18,7 +18,7 @@ jobs:
         run: npm ci --production-only
 
       - name: 📦  build
-        run: npm run build
+        run: npx nx build team-awesome-web
 
       - name: 🧹 Run lint
         run: npm run lint
