@@ -4,15 +4,13 @@ import * as Types from "../../types/timeEntries";
 export const deleteTimeEntry = async (
   timeEntryToDelete: Types.TimeEntry,
 ): Promise<Types.TimeEntry> => {
-  return fetch(
-    `https://my-json-server.typicode.com/humanoidsbv/team-awesome-dirk/time-entries/${timeEntryToDelete.id}`,
-    {
-      method: "DELETE",
-      headers: {
-        "Content-Type": "application/json",
-      },
+  const baseURL = process.env.NEXT_PUBLIC_DB_HOST;
+  return fetch(`${baseURL}/time-entries/${timeEntryToDelete.id}`, {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
     },
-  )
+  })
     .then((response) => {
       if (response.status === 404) {
         throw new NotFoundError();

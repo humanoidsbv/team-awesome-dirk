@@ -1,7 +1,8 @@
 import * as Types from "../../types/teamMember";
 
 export const getTeamMembers = async (): Promise<Types.TeamMember[]> => {
-  return fetch("https://my-json-server.typicode.com/humanoidsbv/team-awesome-dirk/team-members", {
+  const baseURL = process.env.NEXT_PUBLIC_DB_HOST;
+  return fetch(`${baseURL}/time-entries`, {
     method: "GET",
     headers: {
       "Content-type": "application/json",
