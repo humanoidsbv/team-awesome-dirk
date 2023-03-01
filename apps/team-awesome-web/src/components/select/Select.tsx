@@ -1,5 +1,5 @@
 import { ChangeEvent, ReactNode } from "react";
-import { SortOption } from "../time-entries/TimeEntries";
+import { SortOption } from "../../types/sortOption";
 import * as Styled from "./Select.Styled";
 
 interface SelectProps {
