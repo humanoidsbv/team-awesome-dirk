@@ -2,7 +2,7 @@
 import { useContext, ChangeEvent, useEffect, useState } from "react";
 import { StoreContext } from "../store-context";
 import { TimeEntry } from "../time-entry";
-import { Select } from "../Select";
+import { Select } from "../selection";
 import * as Types from "../../types";
 import * as Styled from "./TimeEntries.Styled";
 

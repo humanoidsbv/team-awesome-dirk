@@ -21,4 +21,4 @@ jobs:
         run: npx nx build team-awesome-web
 
       - name: 🧹 Run lint
-        run: npm run lint
+        run: npx nx lint team-awesome-web
