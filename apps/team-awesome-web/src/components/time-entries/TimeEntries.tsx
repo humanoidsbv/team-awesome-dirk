@@ -11,17 +11,16 @@ interface TimeEntriesProps {
 }
 
 export type SortOption = "client" | "startTimestamp";
-type FilterOption = string;
 
 export const TimeEntries = ({ handleDeleteEntry }: TimeEntriesProps) => {
   const { timeEntries } = useContext(StoreContext);
   const [sortOption, setSortOption] = useState<SortOption>("client");
-  const [filterOption, setFilterOption] = useState<FilterOption>("Show all clients");
+  const [filterOption, setFilterOption] = useState("Show all clients");
 
   const [sortedTimeEntries, setSortedTimeEntries] = useState<Types.TimeEntry[]>([]);
   const filterOptions = new Set([...timeEntries.map((client) => client.client)].sort());
 
-  const handleSortandFilter = (sort: SortOption, filter: FilterOption) => {
+  const handleSortandFilter = (sort: SortOption, filter: string) => {
     const filteredEntries =
       filter === "Show all clients"
         ? [...timeEntries]
