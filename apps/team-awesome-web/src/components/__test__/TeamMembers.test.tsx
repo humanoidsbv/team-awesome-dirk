@@ -1,6 +1,6 @@
 import React from "react";
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { render, screen } from "@testing-library/react";
+import { render } from "@testing-library/react";
 import { TeamMembers } from "../team-members";
 // import { TimeEntryForm } from "../Form/time-entry-form";
 
