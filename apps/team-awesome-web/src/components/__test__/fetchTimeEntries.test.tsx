@@ -1,5 +1,5 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
-import { waitFor } from "@testing-library/react";
+
 import { getTimeEntries } from "../../services/time-entries/getTimeEntries";
 
 const mockedTimeEntries = [
@@ -12,20 +12,29 @@ const mockedTimeEntries = [
   },
 ];
 
+const unmockedFetch = global.fetch;
+
+beforeEach(() => {
+  global.fetch = jest.fn(() =>
+    Promise.resolve({
+      json: () => Promise.resolve(mockedTimeEntries),
+    }),
+  ) as jest.Mock;
+});
+
+afterEach(() => {
+  global.fetch = unmockedFetch;
+});
+
 test("if time entries are fetched from the server", async () => {
-  const mockFetchResponse = Promise.resolve({
-    json: () => Promise.resolve(mockedTimeEntries),
+  const response = await getTimeEntries();
+  expect(response).toEqual(mockedTimeEntries);
+});
+
+test("if getTimeEntries gets called using the environment variable", async () => {
+  await getTimeEntries();
+  expect(global.fetch).toHaveBeenCalledWith(`${process.env.NEXT_PUBLIC_DB_HOST}/time-entries`, {
+    headers: { "Content-Type": "application/json" },
+    method: "GET",
   });
-
-  global.fetch = jest.fn().mockImplementationOnce(() => mockFetchResponse);
-
-  const response = getTimeEntries();
-
-  expect(response).toEqual(mockFetchResponse);
-  expect(global.fetch).toHaveBeenCalledTimes(1);
-  waitFor(() =>
-    expect(global.fetch).toHaveBeenCalledWith(
-      `${process.env.NEXT_PUBLIC_DB_HOST}/time-entries?_sort=startTime&_order=asc`,
-    ),
-  );
 });

@@ -8,9 +8,9 @@ it("renders a team member", () => {
   const mockMembers = [
     {
       id: 1,
-      firstName: "Herman",
-      lastName: "Vulkers",
-      emailAddress: "hermanvulkers@gmail.com",
+      firstName: "Dirk",
+      lastName: "Burgers",
+      emailAddress: "dirk.burgers@humanoids.nl",
       label: "test",
       currentClient: "Humanoids",
     },
