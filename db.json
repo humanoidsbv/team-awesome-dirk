@@ -1,61 +1,84 @@
 {
-  "time-entries": [
+  "timeEntries": [
     {
       "id": 2,
+      "activity": "Activity 3",
       "client": "Client 2",
       "startTimestamp": "2023-02-02T17:53:00.000Z",
       "stopTimestamp": "2023-02-02T19:53:00.000Z"
     },
     {
       "id": 4,
+      "activity": "Activity 3",
       "client": "Client 4",
       "startTimestamp": "2023-02-02T17:53:00.000Z",
       "stopTimestamp": "2023-02-02T19:53:00.000Z"
     },
     {
       "id": 6,
+      "activity": "Activity 2",
       "client": "Client 6",
       "startTimestamp": "2023-02-08T17:47:00.000Z",
       "stopTimestamp": "2023-02-08T20:47:00.000Z"
     },
     {
       "id": 7,
+      "activity": "Activity 2",
       "client": "Client 7",
       "startTimestamp": "2023-02-09T17:59:00.000Z",
       "stopTimestamp": "2023-02-09T19:59:00.000Z"
     },
     {
       "id": 8,
+      "activity": "Activity 2",
       "client": "Client 0",
       "startTimestamp": "2023-02-08T14:02:00.000Z",
       "stopTimestamp": "2023-02-08T15:02:00.000Z"
     },
     {
       "id": 9,
+      "activity": "Activity 2",
       "client": "Client 3",
       "startTimestamp": "2023-02-16T15:02:00.000Z",
       "stopTimestamp": "2023-02-16T15:02:00.000Z"
     },
     {
       "id": 10,
+      "activity": "Activity 2",
       "client": "Client 7",
       "startTimestamp": "2023-02-22T17:40:00.000Z",
       "stopTimestamp": "2023-02-22T19:40:00.000Z"
     },
     {
       "id": 11,
+      "activity": "Activity 1",
       "client": "Client 7",
       "startTimestamp": "2023-02-28T16:20:00.000Z",
       "stopTimestamp": "2023-02-28T16:20:00.000Z"
     },
     {
       "id": 12,
+      "activity": "Activity 1",
       "client": "Client 7",
       "startTimestamp": "2023-02-28T22:27:00.000Z",
       "stopTimestamp": "2023-02-28T22:27:00.000Z"
+    },
+    {
+      "id": 13,
+      "activity": "Activity 1",
+      "client": "adfasdkjfj",
+      "startTimestamp": "2023-03-15T15:57:00.000Z",
+      "stopTimestamp": "2023-03-15T15:57:00.000Z"
+    },
+    {
+      "id": 14,
+      "activity": "Activity 1",
+      "client": "Client 8",
+      "startTimestamp": "2023-03-30T14:02:00.000Z",
+      "stopTimestamp": "2023-03-30T16:02:00.000Z"
     }
   ],
-  "team-members": [
+  "teamMembers": [
     {
       "id": 16,
       "firstName": "Ruben",
