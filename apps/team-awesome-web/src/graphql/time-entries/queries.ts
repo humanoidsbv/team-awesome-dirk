@@ -1,0 +1,11 @@
+export const GET_TIME_ENTRIES = gql`
+  query GetTimeEntries {
+    allTimeEntries {
+      id
+      activity
+      client
+      endTime
+      startTime
+    }
+  }
+`;
