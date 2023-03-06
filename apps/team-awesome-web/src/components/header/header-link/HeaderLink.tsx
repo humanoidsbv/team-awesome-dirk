@@ -7,9 +7,10 @@ interface HeaderLinkProps {
   linkText: string;
   href: string;
   color: string;
+  dataCy?: string;
 }
 
-export const HeaderLink = ({ linkText, href, color }: HeaderLinkProps) => {
+export const HeaderLink = ({ dataCy, linkText, href, color }: HeaderLinkProps) => {
   const router = useRouter();
 
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
@@ -25,6 +26,7 @@ export const HeaderLink = ({ linkText, href, color }: HeaderLinkProps) => {
           color={color}
           href={href}
           onClick={handleClick}
+          data-cy={dataCy}
         >
           {linkText}
         </Styled.Link>

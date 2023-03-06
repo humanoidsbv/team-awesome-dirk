@@ -1,13 +1,20 @@
-import { getGreeting } from '../support/app.po';
+describe("Routing", () => {
+  beforeEach(() => cy.visit("/"));
 
-describe('team-awesome-web', () => {
-  beforeEach(() => cy.visit('/'));
+  it("navigates to other pages", () => {
+    cy.viewport(1400, 800);
+    cy.visit("http://localhost:4200");
 
-  it('should display welcome message', () => {
-    // Custom command example, see `../support/commands.ts` file
-    cy.login('my-email@something.com', 'myPassword');
+    cy.get("[data-cy=nav-team-members]").click();
+    cy.get("[data-cy=nav-timesheets]").click();
+  });
 
-    // Function helper example, see `../support/app.po.ts` file
-    getGreeting().contains('Welcome team-awesome-web');
+  it("navigates to other pages on mobile", () => {
+    cy.viewport(550, 750);
+    cy.get("[data-cy=nav-button]").click();
+    cy.get("[data-cy=nav-team-members]").click();
+    cy.url().should("include", "team-members");
+    cy.get("[data-cy=nav-button]").click();
+    cy.get("[data-cy=nav-timesheets]").click();
   });
 });

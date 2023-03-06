@@ -22,3 +22,6 @@ jobs:
 
       - name: 🧹 Run lint
         run: npx nx lint team-awesome-web
+
+      - name: 🧪  Test
+        run: npx nx test team-awesome-web

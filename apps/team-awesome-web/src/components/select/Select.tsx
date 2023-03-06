@@ -1,6 +1,6 @@
 import { ChangeEvent, ReactNode } from "react";
 import { SortOption } from "../../types/sortOption";
-import * as Styled from "./Select.Styled";
+import * as Styled from "./Select.styled";
 
 interface SelectProps {
   children: ReactNode;

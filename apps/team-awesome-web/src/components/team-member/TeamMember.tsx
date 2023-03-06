@@ -9,7 +9,7 @@ export const TeamMember = ({ memberEntry }: MemberEntryProps) => {
   const { firstName, lastName, currentClient } = memberEntry;
 
   return (
-    <Styled.Container>
+    <Styled.Container data-testid="team-member">
       <Styled.NameLabel>
         <Styled.ProfilePicture src="img/amijs.png" alt="profile picture" />
         <Styled.NameWrapper>
