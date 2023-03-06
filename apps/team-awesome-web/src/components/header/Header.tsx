@@ -10,7 +10,7 @@ export const Header = () => {
   return (
     <Styled.Header>
       <Styled.Logo href="/">team awesome</Styled.Logo>
-      <Styled.Toggle onClick={handleClick}>
+      <Styled.Toggle data-cy="nav-button" onClick={handleClick}>
         <Styled.BurgerMenu isActive={isActive} />
       </Styled.Toggle>
       <Styled.MainNav isActive={isActive}>
