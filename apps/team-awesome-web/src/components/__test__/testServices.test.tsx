@@ -27,8 +27,8 @@ afterEach(() => {
 });
 
 test("if time entries are fetched from the server", async () => {
-  const response = await getTimeEntries();
-  expect(response).toEqual(mockedTimeEntries);
+  const timeEntries = await getTimeEntries();
+  expect(timeEntries).toEqual(mockedTimeEntries);
 });
 
 test("if getTimeEntries gets called using the environment variable", async () => {
