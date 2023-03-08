@@ -1,6 +1,6 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-
 import { useContext, useEffect } from "react";
+
+// eslint-disable-next-line import/no-unresolved
 import { useMutation } from "@apollo/client";
 
 import { ADD_TIME_ENTRY, REMOVE_TIME_ENTRY } from "../src/graphql/time-entries/mutations";
@@ -65,11 +65,8 @@ const Homepage = ({ timeEntries: initialTimeEntries }: HomepageProps) => {
   };
 
   const handleDeleteEntry = async (id: string) => {
-    // console.log(id);
     await removeTimeEntry({ variables: { id } });
-
     const afterDelete = timeEntries.filter((entry) => entry.id !== id);
-
     setTimeEntries(afterDelete);
   };
 
