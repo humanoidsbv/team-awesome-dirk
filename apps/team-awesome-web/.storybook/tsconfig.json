@@ -16,6 +16,7 @@
     "../components/**/*.stories.jsx",
     "../components/**/*.stories.tsx",
     "../components/**/*.stories.mdx",
-    "*.js"
+    "*.js",
+    "preview.ts"
   ]
 }
