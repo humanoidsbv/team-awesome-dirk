@@ -8,7 +8,7 @@ import * as Styled from "./TimeEntryForm.styled";
 import * as Types from "../../../types";
 
 export const defaultEntry = {
-  id: 0,
+  id: "0",
   activity: "",
   client: "",
   startTimestamp: "",
