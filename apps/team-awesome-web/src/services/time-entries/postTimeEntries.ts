@@ -4,7 +4,7 @@ export const postTimeEntries = async (newTimeEntry: Types.TimeEntry) => {
   const raw = JSON.stringify(newTimeEntry);
   const baseURL = process.env.NEXT_PUBLIC_DB_HOST;
 
-  return fetch(`${baseURL}/time-entries`, {
+  return fetch(`${baseURL}/timeEntries`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

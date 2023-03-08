@@ -1,14 +1,15 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useContext, ChangeEvent, useEffect, useState } from "react";
-import { StoreContext } from "../store-context";
-import { TimeEntry } from "../time-entry";
+
 import { Select } from "../select";
 import { SortOption } from "../../types/sortOption";
-import * as Types from "../../types";
+import { StoreContext } from "../store-context";
+import { TimeEntry } from "../time-entry";
 import * as Styled from "./TimeEntries.Styled";
+import * as Types from "../../types";
 
 interface TimeEntriesProps {
-  handleDeleteEntry: (input: Types.TimeEntry) => void;
+  handleDeleteEntry: (input: string) => void;
 }
 
 export const TimeEntries = ({ handleDeleteEntry }: TimeEntriesProps) => {
