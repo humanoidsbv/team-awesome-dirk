@@ -33,7 +33,7 @@ test("if time entries are fetched from the server", async () => {
 
 test("if getTimeEntries gets called using the environment variable", async () => {
   await getTimeEntries();
-  expect(global.fetch).toHaveBeenCalledWith(`${process.env.NEXT_PUBLIC_DB_HOST}/time-entries`, {
+  expect(global.fetch).toHaveBeenCalledWith(`${process.env.NEXT_PUBLIC_DB_HOST}/timeEntries`, {
     headers: { "Content-Type": "application/json" },
     method: "GET",
   });
