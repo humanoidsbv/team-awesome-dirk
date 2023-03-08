@@ -26,6 +26,14 @@ export const Button = styled.button<ButtonProps>`
       color: ${({ theme }) => theme.colorSecondary};
     `}
 
+  :hover {
+    background-color: ${({ theme }) => theme.backgroundSecondary};
+  }
+
+  :active {
+    transform: translate(4px, 2px);
+  }
+
   :disabled {
     background-color: ${({ theme }) => theme.colorGreyPrimary};
     border: 0px solid ${({ theme }) => theme.colorGreySecondary};
@@ -37,10 +45,6 @@ export const Button = styled.button<ButtonProps>`
     justify-self: end;
     padding: 12px 30px;
     width: fit-content;
-  }
-
-  :disabled {
-    background-color: ${({ theme }) => theme.colorGreyPrimary};
   }
 `;
 

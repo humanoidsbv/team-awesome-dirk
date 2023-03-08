@@ -1,6 +1,6 @@
 import React from "react";
-import { action } from "@storybook/addon-actions";
 
+import { action } from "@storybook/addon-actions";
 import { Button } from "../src/components/button";
 
 export default {
@@ -13,8 +13,15 @@ export const Primary = (args) => (
     Primary
   </Button>
 );
-export const Secondary = () => (
-  <Button variant="secondary" onClick={action("clicked")}>
+export const Secondary = (args) => (
+  <Button variant="secondary" onClick={action("clicked")} {...args}>
     Secondary
   </Button>
 );
+
+Primary.parameters = {
+  design: {
+    type: "figma",
+    url: "https://www.figma.com/file/lvXiiymHbNqLdfqyqNc5s5/team_awesome_dashboard?node-id=0-754&t=GQaExmahM28DydVQ-0",
+  },
+};

@@ -6,7 +6,7 @@ module.exports = {
   addons: [
     "@storybook/addon-essentials",
     "@nrwl/react/plugins/storybook",
-
+    "storybook-addon-designs",
     "storybook-addon-swc",
     {
       name: "storybook-addon-next",
