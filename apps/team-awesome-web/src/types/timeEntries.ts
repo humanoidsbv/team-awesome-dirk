@@ -1,5 +1,5 @@
 export type TimeEntry = {
-  id: number;
+  id: string;
   client: string;
   activity?: string;
   startTimestamp: string;

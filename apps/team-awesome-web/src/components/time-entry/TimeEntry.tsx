@@ -1,11 +1,11 @@
 import { calculateDuration } from "../../services/calculateDuration";
+import { convertTime } from "../../services/convertTime";
 import * as Styled from "./TimeEntry.styled";
 import * as Types from "../../types";
-import { convertTime } from "../../services/convertTime";
 
 export interface TimeEntryProps {
   timeEntry: Types.TimeEntry;
-  handleDeleteEntry: (input: Types.TimeEntry) => void;
+  handleDeleteEntry: (input: string) => void;
 }
 
 export const TimeEntry = ({ timeEntry, handleDeleteEntry }: TimeEntryProps) => {
@@ -26,7 +26,7 @@ export const TimeEntry = ({ timeEntry, handleDeleteEntry }: TimeEntryProps) => {
         </Styled.Time>
         <Styled.Amount>{amountHours}</Styled.Amount>
       </Styled.TimeWrapper>
-      <Styled.DeleteButton onClick={() => handleDeleteEntry(timeEntry)}>
+      <Styled.DeleteButton onClick={() => handleDeleteEntry(timeEntry.id)}>
         <Styled.BinIcon />
       </Styled.DeleteButton>
     </Styled.Entry>
