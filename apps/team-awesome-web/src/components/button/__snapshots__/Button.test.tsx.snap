@@ -2,7 +2,7 @@
 
 exports[`rendering of button renders the button  1`] = `
 <button
-  className="sc-bcXHqe iRNwlE"
+  className="sc-bcXHqe ecOiny"
   onClick={[Function]}
 >
   <div />
