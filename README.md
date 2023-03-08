@@ -6,7 +6,7 @@
 
 ## Purpose of the app
 
-This app is build for employess to view and upload timesheets, team members, projects, clients and documents. It's and easy way to automate you company's employer administration.
+This app is build for employess to view and upload timesheets, team members, projects, clients and documents. It's an easy way to automate you company's employer administration.
 
 ## Tech-stack
 
