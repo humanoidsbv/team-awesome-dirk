@@ -8,7 +8,8 @@ import * as Styled from "./TimeEntryForm.styled";
 import * as Types from "../../../types";
 
 export const defaultEntry = {
-  id: 0,
+  id: "0",
+  activity: "",
   client: "",
   startTimestamp: "",
   stopTimestamp: "",
@@ -46,6 +47,7 @@ export const TimeEntryForm = ({ handleFormSubmit, setIsModalActive }: TimeEntryF
 
     handleFormSubmit({
       id: newTimeEntry.id,
+      activity: newTimeEntry.activity,
       client: newTimeEntry.client,
       startTimestamp: startTimeStamp,
       stopTimestamp: stopTimeStamp,

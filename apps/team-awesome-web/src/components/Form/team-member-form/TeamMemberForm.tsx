@@ -4,10 +4,9 @@ import { Button } from "../../button";
 import { Input } from "../input/Input";
 import * as Styled from "./TeamMemberForm.styled";
 import { StoreContext } from "../../store-context";
-import { TeamMember } from "../../../types";
 
 export const defaultMember = {
-  id: 0,
+  id: "0",
   firstName: "",
   lastName: "",
   emailAddress: "",
@@ -16,7 +15,7 @@ export const defaultMember = {
 };
 
 export interface TeamMemberFormProps {
-  handleFormSubmit: (input: TeamMember) => void;
+  handleFormSubmit: (input: Types.TeamMember) => void;
 }
 
 export const TeamMemberForm = ({ handleFormSubmit }: TeamMemberFormProps) => {
