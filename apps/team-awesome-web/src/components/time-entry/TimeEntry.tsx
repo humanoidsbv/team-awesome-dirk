@@ -1,5 +1,6 @@
 import { calculateDuration } from "../../services/calculateDuration";
 import { convertTime } from "../../services/convertTime";
+
 import * as Styled from "./TimeEntry.styled";
 import * as Types from "../../types";
 
@@ -17,8 +18,9 @@ export const TimeEntry = ({ timeEntry, handleDeleteEntry }: TimeEntryProps) => {
   const stopTime = convertTime(stopTimeStamp);
 
   const amountHours = calculateDuration(startTimeStamp, stopTimeStamp);
+
   return (
-    <Styled.Entry>
+    <Styled.Entry isFirst="isFirst" isLast="">
       <Styled.Title>{client}</Styled.Title>
       <Styled.TimeWrapper>
         <Styled.Time>

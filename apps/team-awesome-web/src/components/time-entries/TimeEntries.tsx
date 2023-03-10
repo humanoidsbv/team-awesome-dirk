@@ -1,10 +1,13 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import { useContext, ChangeEvent, useEffect, useState } from "react";
 
+import { convertTimeToDay } from "../../services/convertTime";
 import { Select } from "../select";
 import { SortOption } from "../../types/sortOption";
 import { StoreContext } from "../store-context";
 import { TimeEntry } from "../time-entry";
+import { TimeEntryHeader } from "../time-entry-header";
+import { TimeEntryStyleProps } from "../time-entry/TimeEntry.styled";
 import * as Styled from "./TimeEntries.Styled";
 import * as Types from "../../types";
 
@@ -14,7 +17,7 @@ interface TimeEntriesProps {
 
 export const TimeEntries = ({ handleDeleteEntry }: TimeEntriesProps) => {
   const { timeEntries } = useContext(StoreContext);
-  const [sortOption, setSortOption] = useState<SortOption>("client");
+  const [sortOption, setSortOption] = useState<SortOption>("startTimestamp");
   const [filterOption, setFilterOption] = useState("Show all clients");
 
   const [sortedTimeEntries, setSortedTimeEntries] = useState<Types.TimeEntry[]>([]);
@@ -70,9 +73,27 @@ export const TimeEntries = ({ handleDeleteEntry }: TimeEntriesProps) => {
           ))}
         </Select>
       </Styled.Container>
-      {sortedTimeEntries.map((timeEntry) => (
-        <TimeEntry key={timeEntry.id} handleDeleteEntry={handleDeleteEntry} timeEntry={timeEntry} />
-      ))}
+      {sortedTimeEntries.map((timeEntry, i) => {
+        const date = convertTimeToDay(timeEntry.startTimestamp);
+        const previousDate = convertTimeToDay(sortedTimeEntries[i - 1]?.startTimestamp);
+        const nextDate = convertTimeToDay(sortedTimeEntries[i + 1]?.startTimestamp);
+
+        const showHeader = i === 0 || date !== previousDate;
+
+        return (
+          <>
+            {showHeader && <TimeEntryHeader timeEntry={timeEntry} />}
+            <TimeEntry
+              key={timeEntry.id}
+              handleDeleteEntry={handleDeleteEntry}
+              timeEntry={timeEntry}
+            />
+          </>
+        );
+      })}
     </>
   );
 };
+// If index of sortedTimeEntries is 0 then the TimeEntryHeader should rende above index [0]
+// Convert startTimeStap to day
+// If a time entry has a different day then the time entry before, then the timeEntryHeader should render above the index of the time entry with a different day

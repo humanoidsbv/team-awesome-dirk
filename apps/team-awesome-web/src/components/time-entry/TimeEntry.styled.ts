@@ -1,15 +1,37 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { ReactComponent as Bin } from "../../../public/img/bin.svg";
 
-export const Entry = styled.div`
+export interface TimeEntryStyleProps {
+  isFirst: string;
+  isLast: string;
+}
+
+export const Entry = styled.div<TimeEntryStyleProps>`
   align-items: center;
   background-color: ${({ theme }) => theme.backgroundPrimary};
-  border-top: solid 1px ${({ theme }) => theme.colorGreySecondary};
-  border-left: solid 4px ${({ theme }) => theme.backgroundSecondary};
-  border-radius: 4px;
+  border: solid 1px ${({ theme }) => theme.colorGreySecondary};
+  border-top-left-radius: ${(props) => (props.isFirst === "isFirst" ? "4px" : "0px")};
+  border-top-right-radius: ${(props) => (props.isFirst === "isFirst" ? "4px" : "0px")};
+  border-bottom-right-radius: ${(props) => (props.isLast === "isLast" ? "4px" : "0px")};
+  border-bottom-left-radius: ${(props) => (props.isLast === "isLast" ? "4px" : "0px")};
+
   display: grid;
   grid-template-columns: max-content 1fr min-content;
   padding: 20px 16px;
+
+  ${(props) =>
+    props.isFirst &&
+    css`
+      border-top-left-radius: 4px;
+      border-top-right-radius: 4px;
+    `}
+
+  ${(props) =>
+    props.isLast &&
+    css`
+      border-top-left-radius: 4px;
+      border-top-right-radius: 4px;
+    `}
 `;
 
 export const Title = styled.p`
