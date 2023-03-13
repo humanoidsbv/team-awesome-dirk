@@ -7,7 +7,7 @@ import { SortOption } from "../../types/sortOption";
 import { StoreContext } from "../store-context";
 import { TimeEntry } from "../time-entry";
 import { TimeEntryHeader } from "../time-entry-header";
-import { TimeEntryStyleProps } from "../time-entry/TimeEntry.styled";
+
 import * as Styled from "./TimeEntries.Styled";
 import * as Types from "../../types";
 
@@ -79,11 +79,15 @@ export const TimeEntries = ({ handleDeleteEntry }: TimeEntriesProps) => {
         const nextDate = convertTimeToDay(sortedTimeEntries[i + 1]?.startTimestamp);
 
         const showHeader = i === 0 || date !== previousDate;
+        const isFirstStyling = date !== previousDate;
+        const isLastStyling = date !== nextDate;
 
         return (
           <>
             {showHeader && <TimeEntryHeader timeEntry={timeEntry} />}
             <TimeEntry
+              isFirst={isFirstStyling}
+              isLast={isLastStyling}
               key={timeEntry.id}
               handleDeleteEntry={handleDeleteEntry}
               timeEntry={timeEntry}
