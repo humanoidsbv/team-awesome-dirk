@@ -7,9 +7,11 @@ import * as Types from "../../types";
 export interface TimeEntryProps {
   timeEntry: Types.TimeEntry;
   handleDeleteEntry: (input: string) => void;
+  isFirst: boolean;
+  isLast: boolean;
 }
 
-export const TimeEntry = ({ timeEntry, handleDeleteEntry }: TimeEntryProps) => {
+export const TimeEntry = ({ isFirst, isLast, timeEntry, handleDeleteEntry }: TimeEntryProps) => {
   const startTimeStamp = timeEntry.startTimestamp;
   const stopTimeStamp = timeEntry.stopTimestamp;
   const { client } = timeEntry;
@@ -20,7 +22,7 @@ export const TimeEntry = ({ timeEntry, handleDeleteEntry }: TimeEntryProps) => {
   const amountHours = calculateDuration(startTimeStamp, stopTimeStamp);
 
   return (
-    <Styled.Entry isFirst="isFirst" isLast="">
+    <Styled.Entry isFirst={isFirst} isLast={isLast}>
       <Styled.Title>{client}</Styled.Title>
       <Styled.TimeWrapper>
         <Styled.Time>

@@ -1,20 +1,16 @@
 import styled, { css } from "styled-components";
 import { ReactComponent as Bin } from "../../../public/img/bin.svg";
 
-export interface TimeEntryStyleProps {
-  isFirst: string;
-  isLast: string;
+interface TimeEntryStyleProps {
+  isFirst: boolean;
+  isLast: boolean;
 }
 
 export const Entry = styled.div<TimeEntryStyleProps>`
   align-items: center;
   background-color: ${({ theme }) => theme.backgroundPrimary};
-  border: solid 1px ${({ theme }) => theme.colorGreySecondary};
-  border-top-left-radius: ${(props) => (props.isFirst === "isFirst" ? "4px" : "0px")};
-  border-top-right-radius: ${(props) => (props.isFirst === "isFirst" ? "4px" : "0px")};
-  border-bottom-right-radius: ${(props) => (props.isLast === "isLast" ? "4px" : "0px")};
-  border-bottom-left-radius: ${(props) => (props.isLast === "isLast" ? "4px" : "0px")};
-
+  /* border: solid 1px ${({ theme }) => theme.colorGreySecondary}; */
+  border-inline-start: solid 1rem;
   display: grid;
   grid-template-columns: max-content 1fr min-content;
   padding: 20px 16px;
@@ -29,8 +25,8 @@ export const Entry = styled.div<TimeEntryStyleProps>`
   ${(props) =>
     props.isLast &&
     css`
-      border-top-left-radius: 4px;
-      border-top-right-radius: 4px;
+      border-bottom-left-radius: 4px;
+      border-bottom-right-radius: 4px;
     `}
 `;
 
