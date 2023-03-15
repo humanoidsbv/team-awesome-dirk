@@ -1,0 +1,21 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "src/assets/fonts/Bello-Script.ttf",
+      "sha1": "a00330bd0761b302e59083398ab4b02a843ba0f2"
+    },
+    {
+      "path": "src/assets/fonts/ProximaNova-Bold.ttf",
+      "sha1": "48f9613cc9451d4e7cdc67ba8887097c845cc897"
+    },
+    {
+      "path": "src/assets/fonts/ProximaNova-Light.ttf",
+      "sha1": "b1e26a5af83e1b229607cdf9f72d98ee5ef15a98"
+    },
+    {
+      "path": "src/assets/fonts/ProximaNova-Regular.ttf",
+      "sha1": "ec35ab63830a1bec0c4ca303e533014b06fa6253"
+    }
+  ]
+}
