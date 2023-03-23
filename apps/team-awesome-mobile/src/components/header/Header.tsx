@@ -1,6 +1,8 @@
-import { SafeAreaView } from "react-native-safe-area-context";
+import { SafeAreaView, useSafeAreaInsets } from "react-native-safe-area-context";
 import { useState } from "react";
+import { View } from "react-native";
 
+import { theme } from "../../styles/theme";
 import { CloseIcon } from "./Header.styled";
 import { MenuIcon } from "./Header.styled";
 import { Pressable } from "react-native";
@@ -11,12 +13,13 @@ export const Header = () => {
   const [isOpen, setIsOpen] = useState(true);
   const handlePress = () => setIsOpen(!isOpen);
 
+  const insets = useSafeAreaInsets();
   return (
-    <SafeAreaView>
+    <View style={{ paddingTop: insets.top, backgroundColor: theme.backgroundSecondary }}>
       <Styled.Header>
         <TeamAwesomeSvg />
         <Pressable onPress={handlePress}>{isOpen ? <MenuIcon /> : <CloseIcon />}</Pressable>
       </Styled.Header>
-    </SafeAreaView>
+    </View>
   );
 };

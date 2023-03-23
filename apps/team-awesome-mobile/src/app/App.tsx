@@ -1,48 +1,29 @@
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import "react-native-gesture-handler";
+
+import { ApolloProvider } from "@apollo/client";
+import { AppRegistry } from "react-native";
+import { client } from "../services/apollo-client/apollo-client";
+
+import { StackNavigator } from "../navigation/stack-navigator";
 import { NavigationContainer } from "@react-navigation/native";
 import { SafeAreaProvider } from "react-native-safe-area-context";
+
+import { theme } from "../styles/theme";
 import { ThemeProvider } from "styled-components/native";
 import React from "react";
 
-import { Header } from "../components/header";
-import { SubHeader } from "../components/sub-header";
-import { TeamMembers } from "../screens/team-members/TeamMembers";
-import { theme } from "../styles/theme";
-import { TimeSheets } from "../screens/time-sheets/Timesheets";
-import TimeSheetsSvg from "../assets/icons/timesheets.svg";
-import TeamMemberSvg from "../assets/icons/team-members.svg";
-
-const Tab = createBottomTabNavigator();
-
 export const App = () => {
   return (
-    <SafeAreaProvider>
-      <ThemeProvider theme={theme}>
-        <Header />
-        <NavigationContainer>
-          <Tab.Navigator
-            screenOptions={{
-              tabBarActiveTintColor: theme.backgroundSecondary,
-              header: ({ navigation, route, options }) => {
-                return <SubHeader />;
-              },
-            }}
-          >
-            <Tab.Screen
-              options={{ tabBarIcon: TimeSheetsSvg }}
-              name="Timesheets"
-              component={TimeSheets}
-            />
-            <Tab.Screen
-              options={{ tabBarIcon: TeamMemberSvg }}
-              name="Team members"
-              component={TeamMembers}
-            />
-          </Tab.Navigator>
-        </NavigationContainer>
-      </ThemeProvider>
-    </SafeAreaProvider>
+    <ApolloProvider client={client}>
+      <SafeAreaProvider>
+        <ThemeProvider theme={theme}>
+          <NavigationContainer>
+            <StackNavigator />
+          </NavigationContainer>
+        </ThemeProvider>
+      </SafeAreaProvider>
+    </ApolloProvider>
   );
 };
-
+AppRegistry.registerComponent("Team-Awesome-Mobile", () => App);
 export default App;

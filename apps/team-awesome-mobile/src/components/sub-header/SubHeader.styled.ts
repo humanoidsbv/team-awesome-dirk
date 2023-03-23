@@ -3,6 +3,8 @@ import styled from "styled-components/native";
 export const SubHeader = styled.View`
   background-color: ${({ theme }) => theme.backgroundPrimary};
   padding: 20px;
+  margin-bottom: 20px;
+  gap: 20px;
 `;
 
 export const InfoWrapper = styled.View`

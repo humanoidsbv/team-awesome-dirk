@@ -1,12 +1,22 @@
+import { ReactNode } from "react";
+import { useStore } from "../../hooks/store";
+
 import * as Styled from "./SubHeader.styled";
 
-export const SubHeader = () => {
+interface SubheaderProps {
+  title: string;
+  children: ReactNode;
+}
+
+export const SubHeader = ({ children, title }: SubheaderProps) => {
+  const timeEntries = useStore((state) => state.timeEntries);
   return (
     <Styled.SubHeader>
       <Styled.InfoWrapper>
-        <Styled.PageTitle>Timesheets</Styled.PageTitle>
-        <Styled.Counter> 12 Entries</Styled.Counter>
+        <Styled.PageTitle>{title}</Styled.PageTitle>
+        <Styled.Counter>{`${timeEntries.length} entries`}</Styled.Counter>
       </Styled.InfoWrapper>
+      {children}
     </Styled.SubHeader>
   );
 };
